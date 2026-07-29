@@ -34,12 +34,12 @@ export const SIDEBAR_MENU: SidebarItem[] = [
   {
     text: "Experience",
     icon: Briefcase,
-    href: "experiences",
+    href: "/experiences",
   },
   {
     text: "Trading",
     icon: CandlestickChart,
-    href: "experiences",
+    href: "/trades",
   },
   {
     text: "Recommendations",

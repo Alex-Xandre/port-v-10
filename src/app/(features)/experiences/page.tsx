@@ -53,7 +53,7 @@ export default function ExperiencePage() {
           <div className="mt-20 flex flex-col items-center gap-10">
             <dl className="grid w-full max-w-md grid-cols-3 gap-3">
               {[
-                { k: "8+", v: "years coding" },
+                { k: "5+", v: "years coding" },
                 { k: "10+", v: "countries worked with" },
                 { k: "30+", v: "projects shipped" },
               ].map(({ k, v }) => (
@@ -77,7 +77,7 @@ export default function ExperiencePage() {
                   How I work
                 </p>
                 <ol className="relative">
-                  {/* connector line, same as timeline */}
+            
                   <div
                     className="absolute bottom-3 left-2.75 top-3 w-px bg-neutral-200 dark:bg-neutral-800"
                     aria-hidden
