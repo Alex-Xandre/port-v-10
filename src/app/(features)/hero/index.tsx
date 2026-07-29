@@ -1,0 +1,61 @@
+"use client";
+
+import { Container } from "@/components/container";
+import { Globe } from "@/components/globe/globe";
+import { SOCIAL_DATA } from "./links";
+import { ArrowUpRight, PhoneIcon, SquareArrowOutUpRight } from "lucide-react";
+import Button from "@/components/button";
+import CurrentlyCard from "./right-section";
+
+export default function Hero() {
+  return (
+    <Container className="flex items-center  ">
+      <div className="flex flex-col flex-1 bg-background">
+        <h1 className="text-xl font-bold text-text-primary md:text-4xl">
+          Xandre Micua
+        </h1>
+        <h2 className="mt-4 max-w-2xl text-base text-text-primary/60 md:text-lg">
+          Full-stack engineer building modern web &amp; mobile apps, now working
+          at the intersection of blockchain and AI.
+          <br />
+          <br />I turn rough ideas into things people actually use.
+        </h2>
+
+        <div className="mt-6 flex items-center gap-4">
+          {SOCIAL_DATA.map((x, index: number) => (
+            <a
+              key={index}
+              href={x.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-0.5 text-sm text-text-primary/60 transition-colors hover:text-text-primary"
+            >
+              {x.name}
+              <ArrowUpRight
+                size={14}
+                className="opacity-0 transition-opacity group-hover:opacity-100"
+              />
+            </a>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap items-center justify-start gap-3">
+          <Button
+            variant="primary"
+            // onClick={redirectProject}
+            icon={<SquareArrowOutUpRight />}
+          >
+            Browse projects
+          </Button>
+          <Button
+            href="https://calendly.com/xndrmcua22/30min"
+            icon={<PhoneIcon />}
+          >
+            Book a meeting
+          </Button>
+        </div>
+      </div>
+      {/* <Globe /> */}
+      <CurrentlyCard/>
+    </Container>
+  );
+}
