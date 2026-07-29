@@ -174,7 +174,7 @@ export default async function ProjectDetailPage({
               ))}
             </ul>
           </div>
-
+{/* 
           {project.testAccount && (
             <div className="rounded-xl border border-neutral-200 p-5 dark:border-neutral-800">
               <p className="mb-3 flex items-center gap-2 text-[13px] font-medium text-neutral-900 dark:text-neutral-100">
@@ -200,7 +200,7 @@ export default async function ProjectDetailPage({
                 </div>
               </dl>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
