@@ -4,12 +4,7 @@ import { Container } from "@/components/container";
 import { ProjectCard, type Project } from "./project-card";
 import { PROJECT_DATA } from "./project-data";
 import Title from "@/components/title";
-
-const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+import { slugify } from "./adapt";
 
 const PROJECTS: Project[] = PROJECT_DATA.map((p) => ({
   slug: slugify(p.title),

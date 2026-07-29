@@ -15,7 +15,7 @@ export const PROJECT_DATA: ProjectEntry[] = [
   {
     title: "ELMS",
     banner: [
-      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1753855124/els-2_vkx4vf.png",
+      "https://res.cloudinary.com/dn9zkhies/image/upload/v1785326880/test_xciufd.png",
       "https://res.cloudinary.com/dfhhkd04c/image/upload/v1753859077/els-1_eiecqj.png",
     ],
     web_link: "https://e-learning-two-opal.vercel.app/",
