@@ -5,6 +5,7 @@ import {
   Briefcase,
   Star,
   type LucideIcon,
+  CandlestickChart,
 } from "lucide-react";
 
 type SidebarItem = {
@@ -33,6 +34,11 @@ export const SIDEBAR_MENU: SidebarItem[] = [
   {
     text: "Experience",
     icon: Briefcase,
+    href: "experiences",
+  },
+  {
+    text: "Trading",
+    icon: CandlestickChart,
     href: "experiences",
   },
   {

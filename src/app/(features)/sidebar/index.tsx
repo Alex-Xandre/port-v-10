@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,10 +12,14 @@ const Appbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-52 ">
+    <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-95 ">
       <div className="flex items-center justify-between px-5 py-3 text-sm">
-        <h1 className="text-base font-medium text-text-primary">
+        <h1
+          className="text-base font-medium text-text-primary cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           Xandre Micua
         </h1>
 

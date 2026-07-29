@@ -4,12 +4,12 @@ export const SOCIAL_DATA = [
     url: "https://github.com/Alex-Xandre",
   },
   {
-    name: "Linkedin",
+    name: "LinkedIn",
     url: "https://www.linkedin.com/in/alexander-micua-04657a217/",
   },
   { name: "Instagram", url: "https://www.instagram.com/xndrmcua/" },
   {
-    name: "Fiver",
+    name: "Fiverr",
     url: "https://www.fiverr.com/users/aquasama883/manage_gigsupw",
   },
   {

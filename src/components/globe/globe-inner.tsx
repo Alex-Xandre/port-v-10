@@ -8,6 +8,7 @@ import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
 import { GlobeConfig, WorldProps } from "./types";
 import { CLIENT_ARCS } from "./client-arcs";
+import Title from "../title";
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
@@ -246,13 +247,11 @@ function World({ globeConfig, data }: WorldProps) {
 
 export function GlobeInner() {
   return (
-    <div className="relative flex w-full flex-row items-center justify-center py-20">
+    <div className="relative flex w-full flex-row items-center justify-center ">
       <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 md:h-160">
         <div>
-          <h2 className="text-center text-xl font-bold text-text-primary md:text-4xl">
-            Clients I work with
-          </h2>
-          <p className="mx-auto mt-2 max-w-md text-center text-base font-normal text-text-primary/60 md:text-lg">
+          <Title title={"Clients I work with"} />
+          <p className=" mt-1 max-w-md  text-sm font-normal text-text-primary/60 ">
             From the Philippines to the world — here&apos;s where my work lives.
           </p>
         </div>

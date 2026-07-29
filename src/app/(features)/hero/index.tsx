@@ -9,14 +9,14 @@ import CurrentlyCard from "./right-section";
 
 export default function Hero() {
   return (
-    <Container className="flex items-center  ">
-      <div className="flex flex-col flex-1 bg-background">
-        <h1 className="text-xl font-bold text-text-primary md:text-4xl">
+    <Container className="gap-12 py-12">
+      <div className="flex flex-col flex-1">
+        <h1 className="text-xl font-bold text-text-primary font-script md:text-5xl">
           Xandre Micua
         </h1>
         <h2 className="mt-4 max-w-2xl text-base text-text-primary/60 md:text-lg">
           Full-stack engineer building modern web &amp; mobile apps, now working
-          at the intersection of blockchain and AI.
+          at the intersection of blockchain and AI. 
           <br />
           <br />I turn rough ideas into things people actually use.
         </h2>
@@ -55,7 +55,7 @@ export default function Hero() {
         </div>
       </div>
       {/* <Globe /> */}
-      <CurrentlyCard/>
+      <CurrentlyCard />
     </Container>
   );
 }

@@ -17,7 +17,10 @@ export function Container({ children, className, delay = 0 }: ContainerProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className={cn(className, " h-[calc(100dvh-100px)] 2xl:px-60 w-screen max-w-[2000px] mx-auto ")}
+      className={cn(
+        "flex  w-screen max-w-[2000px] items-center mx-auto 2xl:px-100",
+        className,
+      )}
     >
       {children}
     </motion.div>

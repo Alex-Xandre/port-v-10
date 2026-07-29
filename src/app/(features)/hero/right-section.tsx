@@ -1,24 +1,27 @@
 import { ArrowRight } from "lucide-react";
-import { timeLineData, type TimelineEntry } from "../experience/timeline-data";
+import {
+  TIMELINE_DATA,
+  type TimelineEntry,
+} from "../experiences/timeline-data";
 import StatusCard from "./status-card";
 
 const isRole = (e: TimelineEntry) =>
   !["Graduation", "Code Start"].includes(e.title);
 
-const current = timeLineData.find((e) => e.endYear === null);
-const previous = timeLineData
-  .filter((e) => e.endYear !== null && isRole(e))
-  .slice(0, 1);
+const current = TIMELINE_DATA.find((e) => e.endYear === null);
+const previous = TIMELINE_DATA.filter(
+  (e) => e.endYear !== null && isRole(e),
+).slice(0, 2);
 
 export default function CurrentlyCard({
-  href = "/experience",
+  href = "/experiences",
 }: {
   href?: string;
 }) {
   if (!current) return null;
 
   return (
-    <div className="w-full max-w-lg space-y-5">
+    <div className="w-full max-w-md space-y-5">
       <StatusCard />
       <div className=" rounded-xl border border-neutral-200 p-6 dark:border-neutral-800 bg-background ">
         <div className="mb-5 flex items-center gap-2">

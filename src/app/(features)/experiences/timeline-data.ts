@@ -8,7 +8,7 @@ export type TimelineEntry = {
   ic: string;
 };
 
-export const timeLineData: TimelineEntry[] = [
+export const TIMELINE_DATA: TimelineEntry[] = [
   {
     title: "Sr. Full Stack Developer",
     company: "Uptic",
@@ -16,7 +16,7 @@ export const timeLineData: TimelineEntry[] = [
     date: "Oct 2025 - Present",
     endYear: null,
     description:
-      "Embedded in Uptic's core engineering team as a senior full-stack engineer, delivering against active client assignments.",
+      "Building and maintaining a platform that consolidates client software, enterprise agreements, and maintenance subscriptions into a single dashboard. Embedded in the core engineering team, shipping features against live client accounts.",
     ic: "💼",
   },
   {
@@ -25,7 +25,7 @@ export const timeLineData: TimelineEntry[] = [
     date: "June 2024 - July 2025",
     endYear: 2025,
     description:
-      "Full-stack developer for a Belgium-based company. Collaborated closely with the CEO and two senior engineers on product development and design optimization.",
+      "Built the core analytics studio and CRM for customer data platform for top hoteliers in EU, unifying siloed guest data into one system for loyalty, targeting, and insights. Worked directly with the CEO and multiple senior engineers.",
     ic: "💼",
   },
   {
@@ -34,7 +34,7 @@ export const timeLineData: TimelineEntry[] = [
     date: "December 2023 - December 2024",
     endYear: 2024,
     description:
-      "Lead developer on a major Las Vegas-based project with a team of five. Concurrently contributed as a full-stack developer for a Canadian startup agency, handling everything from UI development to backend integration.",
+      "Led a team of building the core of a combined e-commerce and e-learning platform for a Las Vegas combat sports gym — class booking, tiered private and pro training sessions, and course delivery. Concurrently worked full-stack for a Canadian startup agency.",
     ic: "💼",
   },
   {
@@ -52,7 +52,7 @@ export const timeLineData: TimelineEntry[] = [
     date: "July 2022 - July 2023",
     endYear: 2023,
     description:
-      "Started my professional career as a front-end developer for a German-founded company with an office in Baguio City, Philippines. Built a solid foundation in production-level development and team collaboration.",
+      "Maintained a legacy React platform for a German-founded company and led its migration from class components to functional components and hooks. My first production codebase, and where I learned to work in an established team.",
     ic: "💼",
   },
   {
