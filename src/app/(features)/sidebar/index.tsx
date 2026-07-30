@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,17 +12,15 @@ const Appbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const router = useRouter();
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-100 xl:px-54 md:px-32 px-4">
       <div className="flex items-center justify-between  py-3 text-sm">
-        <h1
-          className="text-base font-medium text-text-primary cursor-pointer"
-          onClick={() => router.push("/")}
+        <Link
+          href="/"
+          className="select-none text-base font-medium text-text-primary [-webkit-tap-highlight-color:transparent] touch-manipulation"
         >
-          Xandre Micua
-        </h1>
-
+          <h1 className="text-base font-medium">Xandre Micua</h1>
+        </Link>
         {/* Desktop nav — hidden below md */}
         <nav className="hidden items-center gap-1 md:flex">
           {SIDEBAR_MENU.map((item) => {
