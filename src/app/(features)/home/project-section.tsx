@@ -8,6 +8,7 @@ import { Container } from "@/components/container";
 import type { Project } from "@/app/(features)/projects/project-card";
 import { PROJECT_DATA } from "@/app/(features)/projects/project-data";
 import Title from "@/components/title";
+import Highlights from "../experiences/experience-description";
 
 const slugify = (s: string) =>
   s
@@ -59,7 +60,11 @@ export default function HomeProjectPreview() {
   const p = PROJECTS[active];
 
   return (
-    <Container className="h-auto flex-col items-center py-24">
+    <Container className="h-auto flex-col items-center md:pt-24">
+      <div className=" pb-10 md:pb-20 w-full">
+        <Highlights isHome={true} />
+      </div>
+
       <div className="mb-10 flex w-full items-baseline justify-between">
         <Title title=" Recent works" />
         <Link

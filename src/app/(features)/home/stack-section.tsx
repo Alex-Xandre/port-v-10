@@ -3,16 +3,12 @@ import { Container } from "@/components/container";
 import { StackTile } from "../stacks/stack-card";
 import { STACK_DATA } from "../stacks/stacks-data";
 import Title from "@/components/title";
-import Highlights from "../experiences/experience-description";
+
 const CORE = STACK_DATA.filter((s) => s.group === "core").slice(0, 6);
 
 export default function HomeStackPreview() {
   return (
     <Container className="h-auto flex-col items-start py-20">
-      <div className=" pb-10 md:pb-20 flex items-center justify-center w-full">
-        <Highlights isHome={true} />
-      </div>
-
       <div className="mb-8 flex w-full items-baseline justify-between">
         <Title title="Core Technologies" />
         <Link
