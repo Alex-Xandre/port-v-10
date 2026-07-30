@@ -7,8 +7,8 @@ const rows = [
   {
     icon: FileText,
     label: "Latest post",
-    value: heroMeta?.latestPost?.title,
-    href: heroMeta?.latestPost?.href,
+    value: "",
+    href: "#",
   },
 ];
 
