@@ -7,27 +7,44 @@ import {
   ArrowUpRight,
   Check,
   GitBranch,
-  KeyRound,
   Lock,
 } from "lucide-react";
 import { Container } from "@/components/container";
 import { getProject, getAdjacent, displayUrl, PROJECTS } from "../adapt";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
+const SITE = "https://xandremicua.vercel.app";
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+
   return {
-    title: `${project.title} — Xandre Micua`,
+    title: project.title,
     description: project.description,
+    alternates: { canonical: `${SITE}/projects/${slug}` },
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      type: "website",
+      url: `${SITE}/projects/${slug}`,
+      images: project.banner[0] ? [{ url: project.banner[0] }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: project.banner[0] ? [project.banner[0]] : undefined,
+    },
   };
 }
 
@@ -174,7 +191,7 @@ export default async function ProjectDetailPage({
               ))}
             </ul>
           </div>
-{/* 
+          {/* 
           {project.testAccount && (
             <div className="rounded-xl border border-neutral-200 p-5 dark:border-neutral-800">
               <p className="mb-3 flex items-center gap-2 text-[13px] font-medium text-neutral-900 dark:text-neutral-100">

@@ -4,22 +4,41 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/container";
 import { Markdown } from "@/components/markdown";
 import { getAllPosts, getPost, getAdjacent } from "@/lib/posts";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
+const SITE = "https://xandremicua.vercel.app";
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return { title: `${post.title} — Xandre Micua`, description: post.excerpt };
-}
 
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `${SITE}/blogs/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      url: `${SITE}/blogs/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
+  };
+}
 export default async function PostPage({
   params,
 }: {
