@@ -3,6 +3,7 @@ import { Globe } from "@/components/globe/globe";
 import { TIMELINE_DATA, type TimelineEntry } from "./timeline-data";
 import { TimelineCard } from "./experience-card";
 import Title from "@/components/title";
+import Highlights from "./experience-description";
 
 const MILESTONES = new Set([
   "Graduation",
@@ -53,26 +54,7 @@ export default function ExperiencePage() {
             <Globe />
           </div>
           <div className="lg:mt-20 flex flex-col items-center gap-10">
-            <dl className="grid w-full max-w-md grid-cols-3 gap-3">
-              {[
-                { k: "5+", v: "years coding" },
-                { k: "10+", v: "countries worked with" },
-                { k: "30+", v: "projects shipped" },
-              ].map(({ k, v }) => (
-                <div
-                  key={v}
-                  className="rounded-xl border border-neutral-200 px-3 py-4 text-center dark:border-neutral-800"
-                >
-                  <dt className="text-xl font-medium tabular-nums text-neutral-900 dark:text-neutral-100">
-                    {k}
-                  </dt>
-                  <dd className="mt-1 text-[11px] leading-tight text-neutral-500 dark:text-neutral-400">
-                    {v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
+            <Highlights />
             <div className="w-full max-w-md pb-10">
               <div className="w-full max-w-md">
                 <p className="mb-4 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
