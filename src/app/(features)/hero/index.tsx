@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="mt-6 flex flex-wrap items-center justify-start gap-3">
           <Button
             variant="primary"
-            // onClick={redirectProject}
+            href="/projects"
             icon={<SquareArrowOutUpRight />}
           >
             Browse projects

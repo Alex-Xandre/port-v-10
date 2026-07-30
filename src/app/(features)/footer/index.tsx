@@ -20,8 +20,8 @@ const SOCIALS = [
 ];
 
 const MARKETPLACES = [
-  { label: "Fiverr", href: "https://www.fiverr.com/your-handle" },
-  { label: "Upwork", href: "https://www.upwork.com/freelancers/your-handle" },
+  { label: "Fiverr", href: "https://www.fiverr.com/s/7Y4Q2Eye" },
+  { label: "Upwork", href: "https://www.upwork.com/freelancers/~017a385ecea9ff4281" },
 ];
 
 export function SiteFooter() {

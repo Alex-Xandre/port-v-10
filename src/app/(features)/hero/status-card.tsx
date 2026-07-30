@@ -7,8 +7,8 @@ const rows = [
   {
     icon: FileText,
     label: "Latest post",
-    value: "",
-    href: "#",
+    value: "Turning work down",
+    href: "/blogs/turning-work-down",
   },
 ];
 
