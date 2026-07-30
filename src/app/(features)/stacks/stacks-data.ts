@@ -9,7 +9,6 @@ import {
   SiMongodb,
   SiPostgresql,
   SiTailwindcss,
-  SiSolidity,
   SiMysql,
   SiRedux,
   SiSass,
@@ -20,8 +19,6 @@ import {
   SiGithub,
   SiVercel,
   SiFigma,
-  SiCloudinary,
-  SiVscodium,
 } from "react-icons/si";
 
 export type StackItem = {
@@ -57,6 +54,12 @@ export const STACK_DATA: StackItem[] = [
     note: "10+ projects",
     group: "core",
   },
+  {
+    name: "Python",
+    icon: SiPython,
+    note: "Trading projects",
+    group: "core",
+  },
 
   // Comfortable
   {
@@ -68,7 +71,6 @@ export const STACK_DATA: StackItem[] = [
   { name: "Redux", icon: SiRedux, group: "comfortable" },
   { name: "Sass", icon: SiSass, group: "comfortable" },
   { name: "C# / ASP.NET", icon: SiDotnet, group: "comfortable" },
-  { name: "Python", icon: SiPython, group: "comfortable" },
   { name: "Jest", icon: SiJest, group: "comfortable" },
 
   // Tools

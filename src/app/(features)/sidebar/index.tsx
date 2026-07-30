@@ -27,7 +27,7 @@ const Appbar = () => {
         <nav className="hidden items-center gap-1 md:flex">
           {SIDEBAR_MENU.map((item) => {
             const href = item.href ?? "#";
-            const isActive = pathname === href;
+            const isActive = pathname.includes(href);
             return (
               <Link
                 key={item.text}

@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "React developer",
     "Next.js",
     "Node.js",
+    "python",
     "freelance developer Philippines",
   ],
   authors: [{ name: "Xandre Micua", url: SITE_URL }],

@@ -1,7 +1,6 @@
 "use client";
 
 import { Container } from "@/components/container";
-import { Globe } from "@/components/globe/globe";
 import { SOCIAL_DATA } from "./links";
 import { ArrowUpRight, PhoneIcon, SquareArrowOutUpRight } from "lucide-react";
 import Button from "@/components/button";
@@ -15,8 +14,8 @@ export default function Hero() {
           Xandre Micua
         </h1>
         <h2 className="mt-4 max-w-2xl text-base text-text-primary/60 md:text-lg">
-          Full-stack engineer building modern web &amp; mobile apps, now working
-          at the intersection of trading and AI. 
+          Full-stack engineer — 30+ shipped web & mobile apps since 2021.
+          Currently going deep on trading systems and on-chain agent tooling.
           <br />
           <br />I turn rough ideas into things people actually use.
         </h2>

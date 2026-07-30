@@ -11,7 +11,7 @@ export default function HomeStackPreview() {
       <div className="mb-8 flex w-full items-baseline justify-between">
         <Title title="Core Technologies" />
         <Link
-          href="/stack"
+          href="/stacks"
           className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
         >
           All stack →
