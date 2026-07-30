@@ -15,7 +15,7 @@ const isMilestone = (e: TimelineEntry) => MILESTONES.has(e.title);
 export default function ExperiencePage() {
   return (
     <Container className="items-start overflow-hidden min-h-[calc(100dvh-100px)]">
-      <div className="grid h-full w-full gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16">
+      <div className="grid h-full w-full gap-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16">
         <div className="flex min-h-0 flex-col">
           <header className="mb-8 shrink-0">
             <Title title="Experience" />
@@ -48,9 +48,11 @@ export default function ExperiencePage() {
             </ol>
           </div>
         </div>
-        <div className="hidden lg:block">
-          <Globe />
-          <div className="mt-20 flex flex-col items-center gap-10">
+        <div className="block">
+          <div className="hidden lg:block">
+            <Globe />
+          </div>
+          <div className="lg:mt-20 flex flex-col items-center gap-10">
             <dl className="grid w-full max-w-md grid-cols-3 gap-3">
               {[
                 { k: "5+", v: "years coding" },
@@ -71,13 +73,12 @@ export default function ExperiencePage() {
               ))}
             </dl>
 
-            <div className="w-full max-w-md">
+            <div className="w-full max-w-md pb-10">
               <div className="w-full max-w-md">
                 <p className="mb-4 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
                   How I work
                 </p>
                 <ol className="relative">
-            
                   <div
                     className="absolute bottom-3 left-2.75 top-3 w-px bg-neutral-200 dark:bg-neutral-800"
                     aria-hidden

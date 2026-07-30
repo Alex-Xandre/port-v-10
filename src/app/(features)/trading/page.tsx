@@ -1,4 +1,3 @@
-// src/app/(features)/trading/page.tsx
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/container";
 import Title from "@/components/title";
@@ -16,7 +15,7 @@ const GROUPS: TradingPlatform["group"][] = ["Forex", "Crypto", "Prop"];
 
 export default function TradingPage() {
   return (
-    <Container className="h-auto flex-col items-start py-20">
+    <Container className="h-auto flex-col items-start  md:py-20 lg:py-20 pb-10 md:pb-20 lg:pb-20">
       <header className="mb-10">
         <Title title="Trading" />
         <p className="mt-2 max-w-lg text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
@@ -28,8 +27,7 @@ export default function TradingPage() {
         </p>
       </header>
 
-      <div className="grid w-full gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
-        {/* left: setup + built */}
+      <div className="grid w-full gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
         <div className="flex flex-col gap-10">
           <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
             <div className="mb-4 flex items-center gap-2">
@@ -44,7 +42,7 @@ export default function TradingPage() {
                   key={k}
                   className="flex items-baseline justify-between gap-4"
                 >
-                  <dt className="text-[13px] text-neutral-500 dark:text-neutral-400">
+                  <dt className="shrink-0 text-[13px] text-neutral-500 dark:text-neutral-400">
                     {k}
                   </dt>
                   <dd className="text-right text-[13px] text-neutral-900 dark:text-neutral-100">
@@ -77,7 +75,6 @@ export default function TradingPage() {
           </div>
         </div>
 
-        {/* right: platforms */}
         <div>
           <p className="mb-1 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
             Platforms I use
@@ -91,7 +88,7 @@ export default function TradingPage() {
               <div key={group}>
                 <p
                   className={[
-                    "bg-neutral-50 px-5 py-2 text-[10.5px] uppercase tracking-wider text-neutral-400 dark:bg-neutral-900 dark:text-neutral-500",
+                    "bg-neutral-50 px-4 py-2 text-[10.5px] uppercase tracking-wider text-neutral-400 dark:bg-neutral-900 dark:text-neutral-500 sm:px-5",
                     gi > 0
                       ? "border-t border-neutral-200 dark:border-neutral-800"
                       : "",
@@ -107,24 +104,24 @@ export default function TradingPage() {
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
-                      className="group flex items-center justify-between gap-4 border-t border-neutral-200 px-5 py-3 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900"
+                      className="group flex flex-col gap-1 border-t border-neutral-200 px-4 py-3 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5"
                     >
-                      <span className="flex items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                      <span className="flex min-w-0 items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
                         <Icon
                           className="h-4 w-4 shrink-0 text-neutral-400 transition-colors group-hover:text-neutral-700 dark:text-neutral-500 dark:group-hover:text-neutral-300"
                           aria-hidden
                         />
-                        {p.name}
+                        <span className="truncate">{p.name}</span>
                         {p.code && (
-                          <span className="rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-[10.5px] font-normal text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+                          <span className="shrink-0 rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-[10.5px] font-normal text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
                             {p.code}
                           </span>
                         )}
                       </span>
-                      <span className="flex items-center gap-1.5 text-[12.5px] text-neutral-500 dark:text-neutral-400">
+                      <span className="flex items-center gap-1.5 pl-7 text-[12.5px] text-neutral-500 dark:text-neutral-400 sm:pl-0">
                         {p.note}
                         <ArrowUpRight
-                          className="h-3 w-3 text-neutral-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-neutral-500"
+                          className="h-3 w-3 shrink-0 text-neutral-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-neutral-500"
                           aria-hidden
                         />
                       </span>
@@ -154,17 +151,17 @@ export default function TradingPage() {
                     key={post.slug}
                     href={`/blog/${post.slug}`}
                     className={[
-                      "group flex items-baseline justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900",
+                      "group flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-5",
                       i > 0
                         ? "border-t border-neutral-200 dark:border-neutral-800"
                         : "",
                     ].join(" ")}
                   >
                     <span className="min-w-0">
-                      <span className="block truncate text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                      <span className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 sm:truncate">
                         {post.title}
                       </span>
-                      <span className="mt-0.5 block truncate text-[12.5px] text-neutral-500 dark:text-neutral-400">
+                      <span className="mt-0.5 line-clamp-2 block text-[12.5px] text-neutral-500 dark:text-neutral-400 sm:line-clamp-1">
                         {post.excerpt}
                       </span>
                     </span>

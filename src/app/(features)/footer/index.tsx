@@ -38,7 +38,7 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className=" border-t border-neutral-200 dark:border-neutral-800  2xl:px-100 w-full  ">
+    <footer className=" border-t border-neutral-200 dark:border-neutral-800  2xl:px-100 xl:px-54 md:px-32 px-4 w-full  ">
       <div className="mx-auto w-full max-w-[2000px]">
         <div className="flex flex-col gap-8 py-14 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">

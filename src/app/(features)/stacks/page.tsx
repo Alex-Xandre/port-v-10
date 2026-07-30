@@ -9,7 +9,7 @@ export default function StackPage() {
   const tools = STACK_DATA.filter((s) => s.group === "tools");
 
   return (
-    <Container className="h-auto flex-col items-start py-20">
+    <Container className="h-auto flex-col items-start md:py-20  pb-10 md:pb-20">
       <header className="mb-10">
         <Title title="Stack" />
 

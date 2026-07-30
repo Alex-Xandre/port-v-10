@@ -18,7 +18,6 @@ const PROJECTS: Project[] = PROJECT_DATA.map((p) => ({
   repoUrl: p.github,
 }));
 
-// categories: split "Web · Mobile" into its parts
 const TYPE_FILTERS = (() => {
   const set = new Set<string>();
   for (const p of PROJECTS)
@@ -26,7 +25,6 @@ const TYPE_FILTERS = (() => {
   return [...set].sort();
 })();
 
-// tech: differentiators only, most-used first, capped
 const TECH_FILTERS = (() => {
   const counts = new Map<string, number>();
   for (const p of PROJECTS)
@@ -83,7 +81,7 @@ export default async function ProjectsPage({
   const activeLabel = [type, tech].filter(Boolean).join(" + ");
 
   return (
-    <Container className="flex-col items-start overflow-hidden pt-16 min-h-[calc(100dvh-100px)]">
+    <Container className="flex-col items-start overflow-hidden md:pt-16 min-h-[calc(100dvh-100px)]">
       <header className="mb-6 shrink-0">
         <Title title="Projects" />
         <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">

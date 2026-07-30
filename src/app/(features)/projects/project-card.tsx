@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const extra = project.tech.length - chips.length;
 
   return (
-    <article className="group relative w-full max-w-sm overflow-hidden rounded-xl bg-background  transition-colors duration-300 hover:shadow-sm  border border-neutral-200 dark:border-neutral-600 ">
+    <article className="group relative w-full max-w-md md:max-w-sm overflow-hidden rounded-xl bg-background  transition-colors duration-300 hover:shadow-sm  border border-neutral-200 dark:border-neutral-600 ">
       <div className="relative aspect-video overflow-hidden bg-neutral-900">
         <Image
           src={project.image}

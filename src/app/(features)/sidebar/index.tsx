@@ -14,8 +14,8 @@ const Appbar = () => {
 
   const router = useRouter();
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-95 ">
-      <div className="flex items-center justify-between px-5 py-3 text-sm">
+    <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-100 xl:px-54 md:px-32 px-4">
+      <div className="flex items-center justify-between  py-3 text-sm">
         <h1
           className="text-base font-medium text-text-primary cursor-pointer"
           onClick={() => router.push("/")}
@@ -64,7 +64,7 @@ const Appbar = () => {
       {/* Mobile dropdown panel */}
       <nav
         className={cn(
-          "flex flex-col gap-1 overflow-hidden border-t border-border/10 px-5 text-sm transition-all duration-200 md:hidden",
+          "flex flex-col gap-1 overflow-hidden border-t border-border/10 md:px-5 text-sm transition-all duration-200 md:hidden",
           open ? "max-h-96 py-3" : "max-h-0 border-t-0 py-0",
         )}
       >
