@@ -1,0 +1,186 @@
+// src/app/(features)/trading/page.tsx
+import { ArrowUpRight } from "lucide-react";
+import { Container } from "@/components/container";
+import Title from "@/components/title";
+import {
+  PLATFORMS,
+  SETUP,
+  BUILT,
+  type TradingPlatform,
+  GROUP_ICONS,
+} from "./trading-data";
+import { TRADING_POSTS } from "./trading-blog-post";
+import Link from "next/link";
+
+const GROUPS: TradingPlatform["group"][] = ["Forex", "Crypto", "Prop"];
+
+export default function TradingPage() {
+  return (
+    <Container className="h-auto flex-col items-start py-20">
+      <header className="mb-10">
+        <Title title="Trading" />
+        <p className="mt-2 max-w-lg text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+          Engineer who trades — and builds his own tooling. This is my setup,
+          the platforms I actually use, and what I&apos;ve automated.
+        </p>
+        <p className="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
+          Not financial advice — a record of what I do, not what you should.
+        </p>
+      </header>
+
+      <div className="grid w-full gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+        {/* left: setup + built */}
+        <div className="flex flex-col gap-10">
+          <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-neutral-900 dark:bg-neutral-100" />
+              <span className="text-[13px] text-neutral-500 dark:text-neutral-400">
+                How I trade
+              </span>
+            </div>
+            <dl className="space-y-2.5">
+              {SETUP.map(({ k, v }) => (
+                <div
+                  key={k}
+                  className="flex items-baseline justify-between gap-4"
+                >
+                  <dt className="text-[13px] text-neutral-500 dark:text-neutral-400">
+                    {k}
+                  </dt>
+                  <dd className="text-right text-[13px] text-neutral-900 dark:text-neutral-100">
+                    {v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div>
+            <p className="mb-4 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+              Built for trading
+            </p>
+            <div className="grid gap-3">
+              {BUILT.map(({ name, desc }) => (
+                <div
+                  key={name}
+                  className="rounded-xl border border-neutral-200 p-5 dark:border-neutral-800"
+                >
+                  <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                    {name}
+                  </p>
+                  <p className="mt-1 text-[13px] leading-relaxed text-neutral-500 dark:text-neutral-400">
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* right: platforms */}
+        <div>
+          <p className="mb-1 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+            Platforms I use
+          </p>
+          <p className="mb-4 text-xs text-neutral-400 dark:text-neutral-500">
+            Referral links — I only list what I actually use.
+          </p>
+
+          <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
+            {GROUPS.map((group, gi) => (
+              <div key={group}>
+                <p
+                  className={[
+                    "bg-neutral-50 px-5 py-2 text-[10.5px] uppercase tracking-wider text-neutral-400 dark:bg-neutral-900 dark:text-neutral-500",
+                    gi > 0
+                      ? "border-t border-neutral-200 dark:border-neutral-800"
+                      : "",
+                  ].join(" ")}
+                >
+                  {group}
+                </p>
+                {PLATFORMS.filter((p) => p.group === group).map((p) => {
+                  const Icon = p.icon ?? GROUP_ICONS[p.group];
+                  return (
+                    <a
+                      key={p.name}
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      className="group flex items-center justify-between gap-4 border-t border-neutral-200 px-5 py-3 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900"
+                    >
+                      <span className="flex items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                        <Icon
+                          className="h-4 w-4 shrink-0 text-neutral-400 transition-colors group-hover:text-neutral-700 dark:text-neutral-500 dark:group-hover:text-neutral-300"
+                          aria-hidden
+                        />
+                        {p.name}
+                        {p.code && (
+                          <span className="rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-[10.5px] font-normal text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+                            {p.code}
+                          </span>
+                        )}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-[12.5px] text-neutral-500 dark:text-neutral-400">
+                        {p.note}
+                        <ArrowUpRight
+                          className="h-3 w-3 text-neutral-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-neutral-500"
+                          aria-hidden
+                        />
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+
+          {TRADING_POSTS.length > 0 && (
+            <div className="mt-10">
+              <div className="mb-4 flex items-baseline justify-between">
+                <p className="text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+                  Writing
+                </p>
+                <Link
+                  href="/blog?tag=trading"
+                  className="text-[12.5px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  All posts →
+                </Link>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
+                {TRADING_POSTS.slice(0, 3).map((post, i) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className={[
+                      "group flex items-baseline justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900",
+                      i > 0
+                        ? "border-t border-neutral-200 dark:border-neutral-800"
+                        : "",
+                    ].join(" ")}
+                  >
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                        {post.title}
+                      </span>
+                      <span className="mt-0.5 block truncate text-[12.5px] text-neutral-500 dark:text-neutral-400">
+                        {post.excerpt}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-[12.5px] tabular-nums text-neutral-400 dark:text-neutral-500">
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </Container>
+  );
+}

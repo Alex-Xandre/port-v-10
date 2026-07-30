@@ -28,7 +28,6 @@ export const PROJECT_DATA: ProjectEntry[] = [
       "Automatic quiz scoring and feedback",
       "Student profile and progress tracking",
       "Role-based access (admin, instructor, student)",
-      "Secure payment integration for course and event purchases",
       "Event scheduling and calendar system",
       "Admin dashboard with analytics",
     ],
@@ -45,7 +44,11 @@ export const PROJECT_DATA: ProjectEntry[] = [
     stack: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"],
     description:
       "An e-commerce platform focused on event management products, with payment integrations.",
-    features: [],
+    features: [
+      "Built a fully functional e-commerce app for event and ticketing management for staffs and workers with React on the frontend and Node.js with Express on the backend",
+      "Implemented product catalog, cart, and checkout with integrated payments",
+      "Created separate modules for admin and customer",
+    ],
     type: "Web",
     github: "https://github.com/Alex-Xandre/membo",
   },
@@ -65,7 +68,12 @@ export const PROJECT_DATA: ProjectEntry[] = [
     ],
     description:
       "An HR management system handling HR tasks and progress quotas, with a companion mobile app.",
-    features: [],
+    features: [
+      "Built an HR management system with React on the web and React Native for the companion mobile app",
+      "Implemented employee records, task assignment, and progress quota tracking",
+      "Created separate modules for HR admins and employees",
+      "Synced data between web and mobile through a shared Node.js and Express API",
+    ],
     type: "Web · Mobile",
   },
   {
@@ -135,23 +143,7 @@ export const PROJECT_DATA: ProjectEntry[] = [
     type: "Web",
     testAccount: ["xndrmcua22@gmail.com", "12345678"],
   },
-  {
-    title: "AS Glass & Aluminum",
-    banner: [
-      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1691459923/OT12YY1_wgu70c.png",
-    ],
-    web_link: "https://glass-aluminum.onrender.com/",
-    stack: ["MongoDB", "Express", "React", "Node.js", "Styled Components"],
-    description:
-      "An e-commerce platform for a glass and aluminum business in the Philippines.",
-    features: [
-      "Built a fully functional e-commerce app for a hardware business with React on the frontend and Node.js with Express on the backend",
-      "Implemented an inventory system, payment integrations, and service booking",
-      "Created separate modules for admin and customer",
-    ],
-    type: "Web",
-    testAccount: ["xndrmcua22@gmail.com", "xndrmcua22@gmail.com"],
-  },
+
   {
     title: "IRemember",
     banner: [

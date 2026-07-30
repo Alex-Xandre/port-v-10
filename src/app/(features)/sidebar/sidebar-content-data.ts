@@ -39,7 +39,7 @@ export const SIDEBAR_MENU: SidebarItem[] = [
   {
     text: "Trading",
     icon: CandlestickChart,
-    href: "/trades",
+    href: "/trading",
   },
   {
     text: "Recommendations",

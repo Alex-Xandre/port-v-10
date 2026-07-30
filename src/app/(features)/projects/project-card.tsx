@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const extra = project.tech.length - chips.length;
 
   return (
-    <article className="group relative w-full max-w-sm overflow-hidden rounded-xl  transition-colors duration-300 hover:shadow-sm bg-background border border-neutral-200 dark:border-neutral-600 ">
+    <article className="group relative w-full max-w-sm overflow-hidden rounded-xl bg-background  transition-colors duration-300 hover:shadow-sm  border border-neutral-200 dark:border-neutral-600 ">
       <div className="relative aspect-video overflow-hidden bg-neutral-900">
         <Image
           src={project.image}
@@ -60,13 +60,13 @@ export function ProjectCard({ project }: { project: Project }) {
           {chips.map((t) => (
             <li
               key={t}
-              className="rounded px-2 py-0.5 text-[11.5px] text-neutral-600  dark:text-neutral-400"
+              className="rounded bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400"
             >
               {t}
             </li>
           ))}
           {extra > 0 && (
-            <li className="rounded  px-2 py-0.5 text-[11.5px] text-neutral-400 0 dark:text-neutral-500">
+            <li className="rounded bg-neutral-100 px-2.5 py-1 text-xs text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400">
               +{extra}
             </li>
           )}
