@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/container";
 import Title from "@/components/title";
 import {
@@ -80,7 +79,7 @@ export default function TradingPage() {
             Platforms I use
           </p>
           <p className="mb-4 text-xs text-neutral-400 dark:text-neutral-500">
-            Referral links — I only list what I actually use.
+            I only list what I actually use.
           </p>
 
           <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
@@ -96,38 +95,28 @@ export default function TradingPage() {
                 >
                   {group}
                 </p>
-                {PLATFORMS.filter((p) => p.group === group).map((p) => {
-                  const Icon = p.icon ?? GROUP_ICONS[p.group];
-                  return (
-                    <a
-                      key={p.name}
-                      href={p.href}
-                      target="_blank"
-                      rel="noopener noreferrer sponsored"
-                      className="group flex flex-col gap-1 border-t border-neutral-200 px-4 py-3 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5"
-                    >
-                      <span className="flex min-w-0 items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
-                        <Icon
-                          className="h-4 w-4 shrink-0 text-neutral-400 transition-colors group-hover:text-neutral-700 dark:text-neutral-500 dark:group-hover:text-neutral-300"
-                          aria-hidden
-                        />
-                        <span className="truncate">{p.name}</span>
-                        {p.code && (
-                          <span className="shrink-0 rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-[10.5px] font-normal text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
-                            {p.code}
-                          </span>
-                        )}
-                      </span>
-                      <span className="flex items-center gap-1.5 pl-7 text-[12.5px] text-neutral-500 dark:text-neutral-400 sm:pl-0">
-                        {p.note}
-                        <ArrowUpRight
-                          className="h-3 w-3 shrink-0 text-neutral-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-neutral-500"
-                          aria-hidden
-                        />
-                      </span>
-                    </a>
-                  );
-                })}
+                <ul>
+                  {PLATFORMS.filter((p) => p.group === group).map((p) => {
+                    const Icon = p.icon ?? GROUP_ICONS[p.group];
+                    return (
+                      <li
+                        key={p.name}
+                        className="flex flex-col gap-1 border-t border-neutral-200 px-4 py-3 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5"
+                      >
+                        <span className="flex min-w-0 items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                          <Icon
+                            className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500"
+                            aria-hidden
+                          />
+                          <span className="truncate">{p.name}</span>
+                        </span>
+                        <span className="pl-7 text-[12.5px] text-neutral-500 dark:text-neutral-400 sm:pl-0">
+                          {p.note}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             ))}
           </div>
@@ -139,7 +128,7 @@ export default function TradingPage() {
                   Writing
                 </p>
                 <Link
-                  href="/blog?tag=trading"
+                  href="/blogs?tag=trading"
                   className="text-[12.5px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
                 >
                   All posts →
@@ -149,7 +138,7 @@ export default function TradingPage() {
                 {TRADING_POSTS.slice(0, 3).map((post, i) => (
                   <Link
                     key={post.slug}
-                    href={`/blog/${post.slug}`}
+                    href={`/blogs/${post.slug}`}
                     className={[
                       "group flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-5",
                       i > 0
