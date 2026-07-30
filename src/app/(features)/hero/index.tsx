@@ -17,7 +17,7 @@ export default function Hero() {
           Full-stack engineer — 30+ shipped web & mobile apps since 2021.
           Currently going deep on trading systems and on-chain agent tooling.
           <br />
-          <br />I turn rough ideas into things people actually use.
+          <br />I build, I break it, I fix it, I ship it
         </h2>
 
         <div className="mt-6 flex items-center gap-4">
