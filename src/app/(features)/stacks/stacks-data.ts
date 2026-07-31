@@ -19,6 +19,7 @@ import {
   SiGithub,
   SiVercel,
   SiFigma,
+  SiVite,
 } from "react-icons/si";
 
 export type StackItem = {
@@ -38,6 +39,8 @@ export const STACK_DATA: StackItem[] = [
     group: "core",
   },
   { name: "React", icon: SiReact, note: "10+ projects", group: "core" },
+  { name: "Vite", icon: SiVite, note: "10+ projects", group: "core" },
+
   {
     name: "Next.js",
     icon: SiNextdotjs,
