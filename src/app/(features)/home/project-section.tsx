@@ -61,7 +61,7 @@ export default function HomeProjectPreview() {
 
   return (
     <Container className="h-auto flex-col items-center md:pt-24">
-      <div className=" pb-10 md:pb-20 w-full">
+      <div className=" py-6 md:pb-20 w-full">
         <Highlights isHome={true} />
       </div>
 
