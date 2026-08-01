@@ -13,6 +13,17 @@ export type ProjectEntry = {
 
 export const PROJECT_DATA: ProjectEntry[] = [
   {
+    title: "Matterly",
+    banner: [
+      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1785585019/materly_b5kt06.png",
+    ],
+    web_link: "",
+    stack: ["Postgres", "Supabase", "Next JS", "Drizzle", "ORM"],
+    description: "",
+    features: ["Coming soon"],
+    type: "Web",
+  },
+  {
     title: "ELMS",
     banner: [
       "https://res.cloudinary.com/dn9zkhies/image/upload/v1785326880/test_xciufd.png",
