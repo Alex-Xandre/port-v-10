@@ -141,7 +141,7 @@ export default async function ProjectDetailPage({
                 alt={`${project.title} screenshot ${i + 1}`}
                 fill
                 sizes="(min-width: 1024px) 900px, 100vw"
-                className="object-cover object-top"
+                className="object-contain object-top"
                 priority={i === 0}
               />
             </div>

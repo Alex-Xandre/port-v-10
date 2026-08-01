@@ -28,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
           alt={`${project.name} screenshot`}
           fill
           sizes="(min-width: 1024px) 384px, 100vw"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          className="object-contain object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
         {project.year != null && (
           <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-0.5 text-[11px] text-neutral-100 backdrop-blur-sm">
