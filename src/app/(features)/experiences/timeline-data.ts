@@ -16,7 +16,7 @@ export const TIMELINE_DATA: TimelineEntry[] = [
     date: "Oct 2025 - Present",
     endYear: null,
     description:
-      "Building and maintaining a platform that consolidates client software, enterprise agreements, and maintenance subscriptions into a single dashboard. Embedded in the core engineering team, shipping features against live client accounts.",
+      "Building and maintaining a platform. Embedded in the core engineering team, shipping features against live client accounts.",
     ic: "💼",
   },
   {

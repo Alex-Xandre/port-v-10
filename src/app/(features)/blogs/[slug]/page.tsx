@@ -61,7 +61,7 @@ export default async function PostPage({
           All posts
         </Link>
 
-        <h1 className="max-w-2xl font-script text-3xl leading-tight text-neutral-900 dark:text-neutral-100 md:text-4xl">
+        <h1 className="max-w-xl text-2xl leading-snug text-neutral-900 dark:text-neutral-100 md:text-3xl italic">
           {post.title}
         </h1>
         <p className="mt-3 text-xs text-neutral-400 dark:text-neutral-500">

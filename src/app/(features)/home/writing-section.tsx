@@ -8,7 +8,7 @@ export default function HomeWritingPreview() {
   return (
     <Container className="h-auto flex-col py-12 bg-background/90">
       <div className="mb-6 flex w-full items-baseline justify-between">
-        <Title title="Notes" />
+        <Title title="Blogs" />
         <Link
           href="/blogs"
           className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
@@ -33,7 +33,10 @@ export default function HomeWritingPreview() {
               </div>
             </div>
             <span className="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">
-              {post.date}
+              {new Date(post.date).toLocaleDateString("en-US", {
+                month: "short",
+                year: "numeric",
+              })}
             </span>
           </Link>
         ))}

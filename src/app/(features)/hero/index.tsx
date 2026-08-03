@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <Container className="gap-12 py-12 flex-col lg:flex-row md:items-center bg-background">
       <div className="flex flex-col flex-1">
-        <h1 className="font-script text-3xl font-bold text-text-primary md:text-5xl">
+        <h1 className="max-w-xl text-2xl leading-snug text-neutral-900 dark:text-neutral-100 md:text-3xl italic">
           Xandre Micua
         </h1>
 

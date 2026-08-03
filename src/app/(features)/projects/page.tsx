@@ -25,15 +25,24 @@ const TYPE_FILTERS = (() => {
   return [...set].sort();
 })();
 
+const PINNED_TECH = ["Next JS", "Postgres"];
+
 const TECH_FILTERS = (() => {
   const counts = new Map<string, number>();
   for (const p of PROJECTS)
     for (const t of p.tech) counts.set(t, (counts.get(t) ?? 0) + 1);
-  return [...counts.entries()]
-    .filter(([, n]) => n >= 2 && n < PROJECTS.length)
+
+  const auto = [...counts.entries()]
+    .filter(
+      ([name, n]) =>
+        n >= 2 && n < PROJECTS.length && !PINNED_TECH.includes(name),
+    )
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
+    .slice(0, 6)
     .map(([name]) => name);
+
+  const pinned = PINNED_TECH.filter((t) => counts.has(t));
+  return [...pinned, ...auto];
 })();
 
 function PillLink({

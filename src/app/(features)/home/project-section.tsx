@@ -62,7 +62,7 @@ export default function HomeProjectPreview() {
   return (
     <Container className="h-auto flex-col items-center py-12">
       <div className="mb-10 flex w-full items-baseline justify-between">
-        <Title title="Recent works" />
+        <Title title="Projects" />
         <Link
           href="/projects"
           className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"

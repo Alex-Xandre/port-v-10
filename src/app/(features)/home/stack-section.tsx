@@ -8,9 +8,9 @@ const CORE = STACK_DATA.filter((s) => s.group === "core").slice(0, 6);
 
 export default function HomeStackPreview() {
   return (
-    <Container className="h-auto flex-col items-start py-20">
+    <Container className="h-auto flex-col items-start pb-20">
       <div className="mb-8 flex w-full items-baseline justify-between">
-        <Title title="Core Technologies" />
+        <Title title="Stack" />
         <Link
           href="/stacks"
           className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"

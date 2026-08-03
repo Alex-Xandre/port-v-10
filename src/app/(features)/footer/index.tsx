@@ -8,7 +8,6 @@ import Button from "@/components/button";
 import { LiaLinkedin } from "react-icons/lia";
 
 const EMAIL = "xndrmcua22@gmail.com";
-const CALENDLY = "https://calendly.com/xndrmcua22/30min";
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/Alex-Xandre", icon: SiGithub },
@@ -21,7 +20,10 @@ const SOCIALS = [
 
 const MARKETPLACES = [
   { label: "Fiverr", href: "https://www.fiverr.com/s/7Y4Q2Eye" },
-  { label: "Upwork", href: "https://www.upwork.com/freelancers/~017a385ecea9ff4281" },
+  {
+    label: "Upwork",
+    href: "https://www.upwork.com/freelancers/~017a385ecea9ff4281",
+  },
 ];
 
 export function SiteFooter() {
@@ -33,7 +35,7 @@ export function SiteFooter() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      window.location.href = `mailto:${EMAIL}`; // clipboard blocked → fall back
+      window.location.href = `mailto:${EMAIL}`;
     }
   };
 
@@ -42,7 +44,7 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-[2000px]">
         <div className="flex flex-col gap-8 py-14 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <p className="font-script text-2xl text-neutral-900 dark:text-neutral-100">
+            <p className="max-w-xl text-2xl leading-snug text-neutral-900 dark:text-neutral-100 md:text-3xl italic">
               Let&apos;s build something
             </p>
             <p className="mt-2 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
@@ -52,9 +54,6 @@ export function SiteFooter() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Button variant="primary" href={CALENDLY} icon={<Phone />}>
-              Book a meeting
-            </Button>
             <Button
               variant="secondary"
               onClick={copyEmail}

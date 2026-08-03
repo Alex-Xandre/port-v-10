@@ -14,7 +14,7 @@ const GROUPS: TradingPlatform["group"][] = ["Forex", "Crypto", "Prop"];
 
 export default function TradingPage() {
   return (
-    <Container className="h-auto flex-col items-start  md:py-20 lg:py-20 pb-10 md:pb-20 lg:pb-20">
+    <Container className="h-auto flex-col items-start md:py-20 lg:py-20 pb-10 md:pb-20 lg:pb-20">
       <header className="mb-10">
         <Title title="Trading" />
         <p className="mt-2 max-w-lg text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
@@ -28,18 +28,15 @@ export default function TradingPage() {
 
       <div className="grid w-full gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
         <div className="flex flex-col gap-10">
-          <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
-            <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-neutral-900 dark:bg-neutral-100" />
-              <span className="text-[13px] text-neutral-500 dark:text-neutral-400">
-                How I trade
-              </span>
-            </div>
-            <dl className="space-y-2.5">
+          <div>
+            <p className="mb-3 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+              How I trade
+            </p>
+            <dl>
               {SETUP.map(({ k, v }) => (
                 <div
                   key={k}
-                  className="flex items-baseline justify-between gap-4"
+                  className="flex items-baseline justify-between gap-4 border-t border-neutral-200 py-3 dark:border-neutral-800"
                 >
                   <dt className="shrink-0 text-[13px] text-neutral-500 dark:text-neutral-400">
                     {k}
@@ -53,14 +50,14 @@ export default function TradingPage() {
           </div>
 
           <div>
-            <p className="mb-4 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+            <p className="mb-3 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
               Built for trading
             </p>
-            <div className="grid gap-3">
+            <div>
               {BUILT.map(({ name, desc }) => (
                 <div
                   key={name}
-                  className="rounded-xl border border-neutral-200 p-5 dark:border-neutral-800"
+                  className="border-t border-neutral-200 py-4 dark:border-neutral-800"
                 >
                   <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                     {name}
@@ -78,21 +75,14 @@ export default function TradingPage() {
           <p className="mb-1 text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
             Platforms I use
           </p>
-          <p className="mb-4 text-xs text-neutral-400 dark:text-neutral-500">
+          <p className="mb-5 text-xs text-neutral-400 dark:text-neutral-500">
             I only list what I actually use.
           </p>
 
-          <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
-            {GROUPS.map((group, gi) => (
-              <div key={group}>
-                <p
-                  className={[
-                    "bg-neutral-50 px-4 py-2 text-[10.5px] uppercase tracking-wider text-neutral-400 dark:bg-neutral-900 dark:text-neutral-500 sm:px-5",
-                    gi > 0
-                      ? "border-t border-neutral-200 dark:border-neutral-800"
-                      : "",
-                  ].join(" ")}
-                >
+          <div>
+            {GROUPS.map((group) => (
+              <div key={group} className="mb-6">
+                <p className="mb-1 text-[10.5px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
                   {group}
                 </p>
                 <ul>
@@ -101,7 +91,7 @@ export default function TradingPage() {
                     return (
                       <li
                         key={p.name}
-                        className="flex flex-col gap-1 border-t border-neutral-200 px-4 py-3 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5"
+                        className="flex flex-col gap-1 border-t border-neutral-200 py-3 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                       >
                         <span className="flex min-w-0 items-center gap-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">
                           <Icon
@@ -123,7 +113,7 @@ export default function TradingPage() {
 
           {TRADING_POSTS.length > 0 && (
             <div className="mt-10">
-              <div className="mb-4 flex items-baseline justify-between">
+              <div className="mb-3 flex items-baseline justify-between">
                 <p className="text-[11px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
                   Writing
                 </p>
@@ -134,20 +124,15 @@ export default function TradingPage() {
                   All posts →
                 </Link>
               </div>
-              <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
-                {TRADING_POSTS.slice(0, 3).map((post, i) => (
+              <div>
+                {TRADING_POSTS.slice(0, 3).map((post) => (
                   <Link
                     key={post.slug}
                     href={`/blogs/${post.slug}`}
-                    className={[
-                      "group flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:px-5",
-                      i > 0
-                        ? "border-t border-neutral-200 dark:border-neutral-800"
-                        : "",
-                    ].join(" ")}
+                    className="group flex flex-col gap-2 border-t border-neutral-200 py-3.5 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
                   >
                     <span className="min-w-0">
-                      <span className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 sm:truncate">
+                      <span className="block text-sm font-medium text-neutral-900 group-hover:underline dark:text-neutral-100 sm:truncate">
                         {post.title}
                       </span>
                       <span className="mt-0.5 line-clamp-2 block text-[12.5px] text-neutral-500 dark:text-neutral-400 sm:line-clamp-1">

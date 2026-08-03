@@ -73,7 +73,7 @@ export default async function ProjectDetailPage({
       {/* header */}
       <header className="mb-10 w-full">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h1 className="font-script text-3xl text-neutral-900 dark:text-neutral-100 md:text-4xl">
+          <h1 className="max-w-xl text-2xl leading-snug text-neutral-900 dark:text-neutral-100 md:text-3xl italic">
             {project.title}
           </h1>
           <span className="text-xs text-neutral-400 dark:text-neutral-500">
