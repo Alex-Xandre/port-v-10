@@ -6,6 +6,7 @@ import { DottedBackground } from "@/components/dotted-background";
 import Appbar from "./(features)/sidebar";
 import { Caveat } from "next/font/google";
 import { SiteFooter } from "./(features)/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={caveat.variable}>
+      <Analytics/>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="flex h-screen flex-1 flex-col overflow-hidden font-sans">
