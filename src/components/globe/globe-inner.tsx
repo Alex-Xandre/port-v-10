@@ -26,11 +26,11 @@ const cameraZ = 300;
 
 const GLOBE_CONFIG: GlobeConfig = {
   pointSize: 4,
-  globeColor: "#4b5563",
+  globeColor: "#3f3f46",
   showAtmosphere: true,
   atmosphereColor: "#ffffff",
   atmosphereAltitude: 0.12,
-  emissive: "#374151",
+  emissive: "#27272a",
   emissiveIntensity: 0.15,
   shininess: 0.9,
   polygonColor: "rgba(255,255,255,0.85)",
@@ -247,19 +247,9 @@ function World({ globeConfig, data }: WorldProps) {
 
 export function GlobeInner() {
   return (
-    <div className="relative flex w-full flex-row items-center justify-center ">
-      <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 md:h-160">
-        <div>
-          <Title title={"Clients I work with"} />
-          <p className=" mt-1 max-w-md  text-sm font-normal text-text-primary/60 ">
-            From the Philippines to the world — here&apos;s where my work lives.
-          </p>
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-linear-to-b from-transparent to-background" />
-        <div className="absolute -bottom-20 z-10 h-72 w-full md:h-full">
-          <World data={CLIENT_ARCS} globeConfig={GLOBE_CONFIG} />
-        </div>
-      </div>
+    <div className="absolute inset-0">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-24 bg-linear-to-b from-transparent to-background" />
+      <World data={CLIENT_ARCS} globeConfig={GLOBE_CONFIG} />
     </div>
   );
 }

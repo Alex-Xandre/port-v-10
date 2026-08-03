@@ -60,13 +60,9 @@ export default function HomeProjectPreview() {
   const p = PROJECTS[active];
 
   return (
-    <Container className="h-auto flex-col items-center md:pt-24">
-      <div className=" py-6 md:pb-20 w-full">
-        <Highlights isHome={true} />
-      </div>
-
+    <Container className="h-auto flex-col items-center py-12">
       <div className="mb-10 flex w-full items-baseline justify-between">
-        <Title title=" Recent works" />
+        <Title title="Recent works" />
         <Link
           href="/projects"
           className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"

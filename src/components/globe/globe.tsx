@@ -57,9 +57,9 @@ export function Globe() {
   }, []);
 
   return (
-    <>
+    <div className="relative mx-auto h-70 w-full max-w-105 md:h-100">
       <div
-        className=" flex items-center justify-center transition-opacity ease-out"
+        className="absolute inset-0 flex items-center justify-center transition-opacity ease-out"
         style={{ opacity: shown ? 0 : 1, transitionDuration: `${FADE_MS}ms` }}
         aria-hidden={shown}
       >
@@ -67,6 +67,6 @@ export function Globe() {
       </div>
 
       {mounted && <GlobeInner />}
-    </>
+    </div>
   );
 }

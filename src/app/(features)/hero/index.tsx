@@ -4,21 +4,26 @@ import { Container } from "@/components/container";
 import { SOCIAL_DATA } from "./links";
 import { ArrowUpRight, PhoneIcon, SquareArrowOutUpRight } from "lucide-react";
 import Button from "@/components/button";
-import CurrentlyCard from "./right-section";
+import { Globe } from "@/components/globe/globe";
 
 export default function Hero() {
   return (
-    <Container className="gap-12 md:py-12 flex-col md:flex-row">
+    <Container className="gap-12 py-12 flex-col lg:flex-row md:items-center bg-background">
       <div className="flex flex-col flex-1">
-        <h1 className="text-xl font-bold text-text-primary font-script md:text-5xl">
+        <h1 className="font-script text-3xl font-bold text-text-primary md:text-5xl">
           Xandre Micua
         </h1>
-        <h2 className="mt-4 max-w-2xl text-base text-text-primary/60 md:text-lg">
-          Full-stack engineer — 30+ shipped web & mobile apps since 2021.
-          Currently going deep on trading systems and on-chain agent tooling.
-          <br />
-          <br />I build, I break it, I fix it, I ship it
-        </h2>
+
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-text-primary md:text-lg">
+          30-odd web and mobile apps since 2021, usually as the only engineer on
+          the thing. Lately I build trading tooling that runs without me
+          watching it.
+        </p>
+
+        <p className="mt-4 flex items-center gap-2 text-sm text-text-primary/60">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          Open to freelance — I reply inside a day.
+        </p>
 
         <div className="mt-6 flex items-center gap-4">
           {SOCIAL_DATA.map((x, index: number) => (
@@ -37,6 +42,7 @@ export default function Hero() {
             </a>
           ))}
         </div>
+
         <div className="mt-6 flex flex-wrap items-center justify-start gap-3">
           <Button
             variant="primary"
@@ -53,8 +59,15 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      {/* <Globe /> */}
-      <CurrentlyCard />
+
+      <div className="flex flex-1 flex-col items-center">
+        <div className="relative h-70 w-full max-w-105 md:h-100">
+          <Globe />
+        </div>
+        <p className="mt-2 text-center text-sm text-text-primary/60">
+          Clients in Europe, US and other parts of the world
+        </p>
+      </div>
     </Container>
   );
 }

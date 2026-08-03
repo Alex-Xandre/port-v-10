@@ -28,7 +28,7 @@ export const PROJECT_DATA: ProjectEntry[] = [
       "Tailwind",
       "Vercel",
     ],
-    description: "",
+    description: "Law consultation management for a legal team, built on Supabase",
     features: ["Coming soon"],
     type: "Web",
   },
