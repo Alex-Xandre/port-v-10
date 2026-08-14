@@ -19,7 +19,7 @@ const SOCIALS = [
 ];
 
 const MARKETPLACES = [
-  { label: "Fiverr", href: "https://www.fiverr.com/s/7Y4Q2Eye" },
+  { label: "Fiverr", href: "https://www.fiverr.com/s/99m591E" },
   {
     label: "Upwork",
     href: "https://www.upwork.com/freelancers/~017a385ecea9ff4281",

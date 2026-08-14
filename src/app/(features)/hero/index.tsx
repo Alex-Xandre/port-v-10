@@ -4,7 +4,7 @@ import { Container } from "@/components/container";
 import { SOCIAL_DATA } from "./links";
 import { ArrowUpRight, PhoneIcon, SquareArrowOutUpRight } from "lucide-react";
 import Button from "@/components/button";
-import { Globe } from "@/components/globe/globe";
+import { Globe } from "./world-map";
 
 export default function Hero() {
   return (
@@ -15,9 +15,9 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 max-w-xl text-base leading-relaxed text-text-primary md:text-lg">
-          30-odd web and mobile apps since 2021, usually as the only engineer on
+          30+ web and mobile apps since 2021, usually as the only engineer on
           the thing. Lately I build trading tooling that runs without me
-          watching it.
+          watching it
         </p>
 
         <p className="mt-4 flex items-center gap-2 text-sm text-text-primary/60">
@@ -61,12 +61,7 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-1 flex-col items-center">
-        <div className="relative h-70 w-full max-w-105 md:h-100">
-          <Globe />
-        </div>
-        <p className="mt-2 text-center text-sm text-text-primary/60">
-          Clients in Europe, US and other parts of the world
-        </p>
+        <Globe />
       </div>
     </Container>
   );

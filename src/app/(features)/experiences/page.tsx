@@ -1,9 +1,10 @@
 import { Container } from "@/components/container";
-import { Globe } from "@/components/globe/globe";
+
 import { TIMELINE_DATA, type TimelineEntry } from "./timeline-data";
 import { TimelineCard } from "./experience-card";
 import Title from "@/components/title";
 import Highlights from "./experience-description";
+import { Globe } from "../hero/world-map";
 
 const MILESTONES = new Set([
   "Graduation",

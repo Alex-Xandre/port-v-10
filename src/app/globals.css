@@ -10,18 +10,32 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --text-primary: 23 23 23;
+  --text-primary: #093824;
   --text-secondary: 23 23 23;
   --border: 23 23 23;
+
+  --accent: #bf4e30;
+  --accent-hover: #d45f3e;
+
+  --secondary-background: #e5eafa;
+  --secondary-background-hover: #d6ddf6;
+  --secondary-border: #c3cdf0;
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  --text-primary: 237 237 237;
+  --text-primary: #d8e4de;
   --text-secondary: 237 237 237;
   --border: 237 237 237;
+
+  --accent: #bf4e30;
+  --accent-hover: #d45f3e;
+
+  --secondary-background: #1a1f33;
+  --secondary-background-hover: #242b45;
+  --secondary-border: #2f3752;
 }
 
 @theme inline {
@@ -32,6 +46,13 @@
   --color-text-secondary: rgb(var(--text-secondary));
   --color-border: rgb(var(--border));
 
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+
+  --color-secondary-background: var(--secondary-background);
+  --color-secondary-background-hover: var(--secondary-background-hover);
+  --color-secondary-border: var(--secondary-border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -40,4 +61,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes flow {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-flow { animation: none; opacity: 0; }
 }

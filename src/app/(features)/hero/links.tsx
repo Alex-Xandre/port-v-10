@@ -10,7 +10,7 @@ export const SOCIAL_DATA = [
   { name: "Instagram", url: "https://www.instagram.com/xndrmcua/" },
   {
     name: "Fiverr",
-    url: "https://www.fiverr.com/s/7Y4Q2Ey",
+    url: "https://www.fiverr.com/s/99m591E",
   },
   {
     name: "Upwork",

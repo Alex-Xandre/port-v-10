@@ -16,15 +16,15 @@ const base =
   "disabled:pointer-events-none disabled:opacity-40";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-neutral-900 text-neutral-50 hover:bg-neutral-700 " +
-    "dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-300",
+  primary: "bg-accent text-white hover:bg-accent-hover",
+
   secondary:
-    "border border-neutral-200 bg-transparent text-neutral-900 hover:bg-neutral-100 " +
-    "dark:border-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-900",
+    "bg-secondary-background text-text-primary " +
+    "hover:bg-secondary-background-hover",
+
   ghost:
-    "text-neutral-600 hover:text-neutral-900 " +
-    "dark:text-neutral-400 dark:hover:text-neutral-100",
+    "text-neutral-600 hover:text-accent " +
+    "dark:text-neutral-400 dark:hover:text-accent",
 };
 
 const sizes: Record<Size, string> = {
