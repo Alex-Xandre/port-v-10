@@ -74,7 +74,7 @@ export default function FooterCat() {
   return (
     <div
       ref={trackRef}
-      className="pointer-events-none relative h-8 w-full overflow-hidden -mt-10"
+      className="pointer-events-none relative h-8 w-full overflow-hidden -mt-5 lg:-mt-10 "
       aria-hidden="true"
     >
       <div
