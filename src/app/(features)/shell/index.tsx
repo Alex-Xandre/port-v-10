@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { COMMANDS, runCommand, type OutLine } from "./shell-commands";
+import { applyPalette } from "@/lib/palletes";
 
 type Entry = { kind: "cmd"; text: string } | { kind: "out"; line: OutLine };
 
@@ -97,6 +98,7 @@ export default function Shell() {
     setValue("");
 
     if (result.close) close();
+    if (result.theme) applyPalette(result.theme);
     if (result.navigate) {
       const to = result.navigate;
       setTimeout(() => {

@@ -3,6 +3,7 @@ export type CommandResult = {
   navigate?: string;
   clear?: boolean;
   close?: boolean;
+  theme?: string;
 };
 
 export type OutLine = {
@@ -22,6 +23,7 @@ export const COMMANDS = [
   "contact",
   "hire",
   "clear",
+  "theme",
   "exit",
 ] as const;
 
@@ -34,6 +36,7 @@ const HELP_DESC: Record<string, string> = {
   hire: "book 30 minutes",
   clear: "clear the screen",
   exit: "close the shell",
+  theme: "recolor the terminal",
 };
 
 export function runCommand(raw: string): CommandResult {
@@ -130,7 +133,14 @@ export function runCommand(raw: string): CommandResult {
           },
         ],
       };
-
+    case "theme": {
+      const name = arg.trim().toLowerCase();
+      if (!name)
+        return { lines: [l("usage: theme <amber|green|blue>", "dim")] };
+      if (!["amber", "green", "blue"].includes(name))
+        return { lines: [l(`theme: ${name}: no such palette`, "error")] };
+      return { lines: [l(`palette set to ${name}`, "ok")], theme: name };
+    }
     case "hire":
       return {
         lines: [
