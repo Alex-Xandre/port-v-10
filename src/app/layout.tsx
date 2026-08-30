@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
+
 import "./globals.css";
 
 import Appbar from "./(features)/sidebar";
@@ -94,8 +94,8 @@ export default function RootLayout({
     >
       <body>
         <Analytics />
-        <div className="scanlines fixed inset-0 z-9" aria-hidden="true" />
-        <main className="flex h-screen flex-1 flex-col overflow-hidden font-mono">
+        <div className="scanlines fixed inset-0 z-0" aria-hidden="true" />
+        <main className="relative z-10 flex h-screen flex-1 flex-col overflow-hidden font-mono">
           <Appbar />
           <div className="mt-16 flex-1 overflow-y-auto">
             {children}

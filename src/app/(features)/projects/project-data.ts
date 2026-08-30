@@ -15,8 +15,7 @@ export const PROJECT_DATA: ProjectEntry[] = [
   {
     title: "Matterly",
     banner: [
-      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1785920642/matterly-3_gmy3uv.png",
-      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1785585019/materly_b5kt06.png",
+      "https://res.cloudinary.com/dfhhkd04c/image/upload/v1787410977/test_lx79k7.png",
     ],
     web_link: "",
     stack: [

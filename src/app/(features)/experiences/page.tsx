@@ -4,7 +4,7 @@ import { TIMELINE_DATA, type TimelineEntry } from "./timeline-data";
 import { TimelineCard } from "./experience-card";
 import Title from "@/components/title";
 import Highlights from "./experience-description";
-import { Globe } from "../hero/world-map";
+
 
 const MILESTONES = new Set([
   "Graduation",
@@ -52,7 +52,7 @@ export default function ExperiencePage() {
         </div>
         <div className="block">
           <div className="hidden lg:block">
-            <Globe />
+            {/* <Globe /> */}
           </div>
           <div className="lg:mt-20 flex flex-col items-center gap-10">
             <Highlights />

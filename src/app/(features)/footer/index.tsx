@@ -11,7 +11,7 @@ const LINKS: { key: string; label: string; href: string; note?: string }[] = [
     key: "meeting",
     label: "calendly.com/xndrmcua22/30min",
     href: "https://calendly.com/xndrmcua22/30min",
-    note: "— thirty minutes, no pitch",
+    note: "— thirty minutes",
   },
   {
     key: "github",
