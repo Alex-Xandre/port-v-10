@@ -22,7 +22,7 @@ export function Container({
       initial={animate ? { opacity: 0, y: 20 } : false}
       animate={animate ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className={cn("mx-auto flex w-full max-w-5xl px-4 sm:px-6", className)}
+      className={cn("mx-auto flex w-full max-w-5xl px-4 sm:px-6 sm:py-12", className)}
     >
       {children}
     </motion.div>

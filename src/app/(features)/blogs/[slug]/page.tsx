@@ -12,6 +12,15 @@ export function generateStaticParams() {
 
 const SITE = "https://xandremicua.vercel.app";
 
+const flag = (s: string) => `--${s.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+const isoDate = (d: string) => {
+  const date = new Date(d);
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${date.getFullYear()}-${m}-${day}`;
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -39,6 +48,7 @@ export async function generateMetadata({
     },
   };
 }
+
 export default async function PostPage({
   params,
 }: {
@@ -51,51 +61,62 @@ export default async function PostPage({
   const { prev, next } = getAdjacent(slug);
 
   return (
-    <Container className="flex-col items-start overflow-hidden md:pt-16 min-h-[calc(100dvh-200px)]">
-      <header className="mb-6 shrink-0">
+    <Container className="flex-col overflow-hidden pt-12 md:pt-16 min-h-[calc(100dvh-200px)]">
+      <header className="mb-8 w-full shrink-0">
         <Link
           href="/blogs"
-          className="mb-6 inline-flex items-center gap-1.5 text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+          className="mb-6 inline-flex items-center gap-1.5 text-[13px] text-text-secondary transition-colors hover:text-accent"
         >
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
-          All posts
+          cd ..
         </Link>
 
-        <h1 className="max-w-xl text-2xl leading-snug text-neutral-900 dark:text-neutral-100 md:text-3xl italic">
+        <p className="text-sm text-accent-muted">
+          xandre@sh:~ $ <span className="text-accent">cat {slug}.md</span>
+        </p>
+
+        <h1 className="mt-5 max-w-2xl text-2xl font-semibold leading-snug text-text-primary md:text-3xl">
           {post.title}
         </h1>
-        <p className="mt-3 text-xs text-neutral-400 dark:text-neutral-500">
-          <time dateTime={post.date}>
-            {new Date(post.date).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })}
+        <p className="mt-3 text-xs text-text-secondary">
+          <time dateTime={post.date} className="tabular-nums">
+            {isoDate(post.date)}
           </time>
-          {` · ${post.readingMinutes} min · ${post.tags.join(" · ")}`}
+          {` · ${post.readingMinutes} min · `}
+          {post.tags.map((t, i) => (
+            <span key={t}>
+              {i > 0 && " "}
+              <Link
+                href={`/blogs?tag=${encodeURIComponent(t)}`}
+                className="text-accent-muted transition-colors hover:text-accent"
+              >
+                {flag(t)}
+              </Link>
+            </span>
+          ))}
         </p>
       </header>
 
       <div className="min-h-0 w-full flex-1 overflow-y-auto pb-8 pr-3 scrollbar-thin scrollbar-gutter-stable">
-        <article className="w-full ">
+        <article className="w-full max-w-2xl font-sans">
           <Markdown>{post.body}</Markdown>
         </article>
 
         {(prev || next) && (
           <nav
             aria-label="Post navigation"
-            className="mt-16 flex w-full  items-stretch justify-between gap-4 border-t border-neutral-200 pt-8 dark:border-neutral-800"
+            className="mt-16 flex w-full items-stretch justify-between gap-4 border-t border-border pt-8"
           >
             {prev ? (
               <Link
                 href={`/blogs/${prev.slug}`}
-                className="group flex items-center gap-2 text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                className="group flex items-center gap-2 text-[13px] text-text-secondary transition-colors hover:text-accent"
               >
                 <ArrowLeft
                   className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:-translate-x-0.5"
                   aria-hidden
                 />
-                {prev.title}
+                {prev.slug}.md
               </Link>
             ) : (
               <span />
@@ -103,9 +124,9 @@ export default async function PostPage({
             {next ? (
               <Link
                 href={`/blogs/${next.slug}`}
-                className="group flex items-center gap-2 text-right text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                className="group flex items-center gap-2 text-right text-[13px] text-text-secondary transition-colors hover:text-accent"
               >
-                {next.title}
+                {next.slug}.md
                 <ArrowRight
                   className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
                   aria-hidden

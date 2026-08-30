@@ -91,7 +91,7 @@ export default async function ProjectsPage({
   const activeFlags = [type, tech].filter(Boolean).map((f) => flag(f!));
 
   return (
-    <Container className="flex-col overflow-hidden md:pt-16 min-h-[calc(100dvh-100px)]">
+    <Container className="flex-col overflow-hidden pt-12 md:pt-16 min-h-[calc(100dvh-100px)]">
       <header className="mb-6 shrink-0">
         <p className="text-sm text-accent-muted">
           xandre@sh:~ ${" "}
