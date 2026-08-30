@@ -22,7 +22,7 @@ export const TIMELINE_DATA: TimelineEntry[] = [
   {
     title: "Full Stack Developer",
     company: "Guestpulse",
-    date: "June 2024 - July 2025",
+    date: "June 2023 - July 2025",
     endYear: 2025,
     description:
       "Built the core analytics studio and CRM for customer data platform for top hoteliers in EU, unifying siloed guest data into one system for loyalty, targeting, and insights. Worked directly with the CEO and multiple senior engineers.",

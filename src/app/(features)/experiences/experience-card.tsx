@@ -4,11 +4,9 @@ import { TimelineEntry } from "./timeline-data";
 type Variant = "current" | "role" | "milestone";
 
 const DOT: Record<Variant, string> = {
-  current:
-    "border-neutral-900 bg-neutral-900 dark:border-neutral-100 dark:bg-neutral-100",
-  role: "border-neutral-400 bg-neutral-400 dark:border-neutral-600 dark:bg-neutral-600",
-  milestone:
-    "border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950",
+  current: "border-accent bg-accent [box-shadow:var(--glow-accent)]",
+  role: "border-accent-muted bg-accent-muted",
+  milestone: "border-border bg-background",
 };
 
 interface TimelineItemProps {
@@ -23,7 +21,8 @@ export function TimelineCard({
   className,
 }: TimelineItemProps) {
   const milestone = variant === "milestone";
-  const period = entry.endYear === null ? "Present" : String(entry.endYear);
+  const current = variant === "current";
+  const period = entry.endYear === null ? "HEAD" : String(entry.endYear);
 
   return (
     <li className={cn("relative pb-10 pl-8 last:pb-0", className)}>
@@ -35,35 +34,39 @@ export function TimelineCard({
         aria-hidden
       />
 
-      <div className="flex items-baseline justify-between gap-4 ">
+      <div className="flex items-baseline justify-between gap-4">
         <h2
           className={cn(
             "font-medium",
-            milestone
-              ? "text-sm text-neutral-600 dark:text-neutral-400"
-              : "text-base text-neutral-900 dark:text-neutral-100",
+            milestone ? "text-sm text-text-secondary" : "text-base text-text-primary",
           )}
         >
           {entry.title}
+          {milestone && (
+            <span className="ml-2 text-xs text-accent-muted">tag</span>
+          )}
         </h2>
-        <span className="shrink-0 text-[13px] tabular-nums text-neutral-400 dark:text-neutral-500">
+        <span
+          className={cn(
+            "shrink-0 text-[13px] tabular-nums",
+            current ? "font-medium text-accent" : "text-text-secondary",
+          )}
+        >
           {period}
         </span>
       </div>
 
-      <p className="mt-0.5 text-[13px] text-neutral-500 dark:text-neutral-400">
+      <p className="mt-0.5 text-[13px] text-text-secondary">
         {entry.company}
         {entry.client && ` · ${entry.client.trim()}`}
-        <span className="mx-1.5 text-neutral-300 dark:text-neutral-700">—</span>
+        <span className="mx-1.5 text-accent-muted">—</span>
         {entry.date}
       </p>
 
       <p
         className={cn(
-          "mt-3 max-w-prose text-[13px] leading-relaxed",
-          milestone
-            ? "text-neutral-400 dark:text-neutral-500"
-            : "text-neutral-600 dark:text-neutral-400",
+          "mt-3 max-w-prose font-sans text-[13px] leading-relaxed",
+          milestone ? "text-text-secondary/80" : "text-text-secondary",
         )}
       >
         {entry.description}
