@@ -1,84 +1,34 @@
-import type { IconType } from "react-icons";
-import {
-  SiTypescript,
-  SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiPostgresql,
-  SiTailwindcss,
-  SiMysql,
-  SiRedux,
-  SiSass,
-  SiDotnet,
-  SiPython,
-  SiJest,
-  SiDocker,
-  SiGithub,
-  SiVercel,
-  SiFigma,
-  SiVite,
-} from "react-icons/si";
-
 export type StackItem = {
   name: string;
-  icon: IconType;
   note?: string;
   group: "core" | "comfortable" | "tools";
 };
 
 export const STACK_DATA: StackItem[] = [
   // Core
-  { name: "TypeScript", icon: SiTypescript, note: "since 2022", group: "core" },
-  {
-    name: "JavaScript",
-    icon: SiJavascript,
-    note: "where it started",
-    group: "core",
-  },
-  { name: "React", icon: SiReact, note: "10+ projects", group: "core" },
-  { name: "Vite", icon: SiVite, note: "10+ projects", group: "core" },
-
-  {
-    name: "Next.js",
-    icon: SiNextdotjs,
-    note: "incl. this site",
-    group: "core",
-  },
-  { name: "Node.js", icon: SiNodedotjs, note: "every backend", group: "core" },
-  { name: "Express", icon: SiExpress, note: "10+ projects", group: "core" },
-  { name: "MongoDB", icon: SiMongodb, note: "10+ projects", group: "core" },
-  { name: "Postgres", icon: SiPostgresql, note: "at Uptic", group: "core" },
-  {
-    name: "Tailwind",
-    icon: SiTailwindcss,
-    note: "10+ projects",
-    group: "core",
-  },
-  {
-    name: "Python",
-    icon: SiPython,
-    note: "Trading projects",
-    group: "core",
-  },
+  { name: "TypeScript", note: "since 2022", group: "core" },
+  { name: "JavaScript", note: "where it started", group: "core" },
+  { name: "React", note: "10+ projects", group: "core" },
+  { name: "Vite", note: "10+ projects", group: "core" },
+  { name: "Next.js", note: "incl. this site", group: "core" },
+  { name: "Node.js", note: "every backend", group: "core" },
+  { name: "Express", note: "10+ projects", group: "core" },
+  { name: "MongoDB", note: "10+ projects", group: "core" },
+  { name: "Postgres", note: "at Uptic", group: "core" },
+  { name: "Tailwind", note: "10+ projects", group: "core" },
+  { name: "Python", note: "Trading projects", group: "core" },
 
   // Comfortable
-  {
-    name: "React Native",
-    icon: SiReact,
-    group: "comfortable",
-  },
-  { name: "MySQL", icon: SiMysql, group: "comfortable" },
-  { name: "Redux", icon: SiRedux, group: "comfortable" },
-  { name: "Sass", icon: SiSass, group: "comfortable" },
-  { name: "C# / ASP.NET", icon: SiDotnet, group: "comfortable" },
-  { name: "Jest", icon: SiJest, group: "comfortable" },
+  { name: "React Native", group: "comfortable" },
+  { name: "MySQL", group: "comfortable" },
+  { name: "Redux", group: "comfortable" },
+  { name: "Sass", group: "comfortable" },
+  { name: "C# / ASP.NET", group: "comfortable" },
+  { name: "Jest", group: "comfortable" },
 
   // Tools
-  { name: "Docker", icon: SiDocker, group: "tools" },
-  { name: "Git / GitHub", icon: SiGithub, group: "tools" },
-  { name: "Vercel", icon: SiVercel, group: "tools" },
-  { name: "Figma", icon: SiFigma, group: "tools" },
+  { name: "Docker", group: "tools" },
+  { name: "Git / GitHub", group: "tools" },
+  { name: "Vercel", group: "tools" },
+  { name: "Figma", group: "tools" },
 ];

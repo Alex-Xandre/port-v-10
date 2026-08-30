@@ -1,51 +1,15 @@
-import type { IconType } from "react-icons";
-import {
-  CandlestickChart,
-  LineChart,
-  Trophy,
-  type LucideIcon,
-} from "lucide-react";
-
 export type TradingPlatform = {
   name: string;
   note: string;
   group: "Forex" | "Crypto" | "Prop";
-  icon?: IconType | LucideIcon;
-};
-
-// fallback glyph per group for platforms without a brand icon
-export const GROUP_ICONS: Record<TradingPlatform["group"], LucideIcon> = {
-  Forex: CandlestickChart,
-  Crypto: LineChart,
-  Prop: Trophy,
 };
 
 export const PLATFORMS: TradingPlatform[] = [
-  {
-    name: "XM Global",
-    note: "main forex broker",
-    group: "Forex",
-  },
-  {
-    name: "Dupoin",
-    note: "secondary account",
-    group: "Forex",
-  },
-  {
-    name: "OKX",
-    note: "spot + futures",
-    group: "Crypto",
-  },
-  {
-    name: "Bitget",
-    note: "copy trading experiments",
-    group: "Crypto",
-  },
-  {
-    name: "The5ers",
-    note: "funded account",
-    group: "Prop",
-  },
+  { name: "XM Global", note: "main forex broker", group: "Forex" },
+  { name: "Dupoin", note: "secondary account", group: "Forex" },
+  { name: "OKX", note: "spot + futures", group: "Crypto" },
+  { name: "Bitget", note: "copy trading experiments", group: "Crypto" },
+  { name: "The5ers", note: "funded account", group: "Prop" },
 ];
 
 export const SETUP = [
