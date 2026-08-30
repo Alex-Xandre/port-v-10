@@ -95,9 +95,9 @@ body {
   background: repeating-linear-gradient(
     0deg,
     transparent 0 3px,
-    rgb(0 0 0 / 0.08) 3px 4px 
+    rgb(0 0 0 / 0.08) 3px 4px
   );
-  opacity: 0.35; 
+  opacity: 0.35;
 }
 
 /* blinking block cursor — <span class="cursor-block" /> */
@@ -155,3 +155,27 @@ body {
   }
 }
 
+
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--border) transparent; 
+}
+
+*::-webkit-scrollbar {
+  /* Chromium/Safari */
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0; /* sharp, on-theme */
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-border);
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
