@@ -10,7 +10,7 @@ export default function HomeCta() {
         xandre@sh:~ $ <span className="text-accent">./contact --no-pitch</span>
       </p>
 
-      <p className="mt-6 max-w-xl text-2xl leading-snug text-text-primary md:text-3xl">
+  <p className="mt-6 max-w-5xl text-2xl leading-snug text-text-primary md:text-3xl">
         If you need one engineer who can take a rough idea and ship the whole
         thing, that&apos;s the work I do.
       </p>
