@@ -98,7 +98,7 @@ export default async function PostPage({
       </header>
 
       <div className="min-h-0 w-full flex-1 overflow-y-auto pb-8 pr-3 scrollbar-thin scrollbar-gutter-stable">
-        <article className="w-full max-w-2xl font-sans">
+        <article className="w-full max-w-5xl font-sans">
           <Markdown>{post.body}</Markdown>
         </article>
 
