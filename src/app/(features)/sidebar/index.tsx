@@ -7,8 +7,9 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SIDEBAR_MENU } from "./sidebar-content-data";
 import Ticker from "./ticker";
+import { GithubStats } from "@/lib/github";
 
-const Appbar = () => {
+const Appbar = ({ gh }: { gh: GithubStats }) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -102,7 +103,7 @@ const Appbar = () => {
         </nav>
       </div>
 
-      <Ticker />
+      <Ticker gh={gh} />
     </header>
   );
 };

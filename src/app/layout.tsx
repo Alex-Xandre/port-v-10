@@ -6,6 +6,7 @@ import Appbar from "./(features)/sidebar";
 import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { SiteFooter } from "./(features)/footer";
 import { Analytics } from "@vercel/analytics/next";
+import { getGithubStats } from "@/lib/github";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -82,11 +83,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const gh = await getGithubStats();
   return (
     <html
       lang="en"
@@ -96,7 +98,7 @@ export default function RootLayout({
         <Analytics />
         <div className="scanlines fixed inset-0 z-0" aria-hidden="true" />
         <main className="relative z-10 flex h-screen flex-1 flex-col overflow-hidden font-mono">
-          <Appbar />
+          <Appbar gh={gh} />
           <div className="mt-16 flex-1 overflow-y-auto">
             {children}
             <SiteFooter />
