@@ -9,22 +9,23 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md font-medium " +
-  "transition-colors duration-150 focus-visible:outline-none " +
-  "focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 " +
-  "dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950 " +
+  "inline-flex items-center justify-center gap-2 font-mono font-medium " +
+  "border transition-all duration-150 focus-visible:outline-none " +
+  "focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 " +
+  "focus-visible:ring-offset-background " +
   "disabled:pointer-events-none disabled:opacity-40";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-white hover:bg-accent-hover",
+  // amber outline that fills on hover — the mockup's .btn
+  primary:
+    "border-accent text-accent bg-transparent " +
+    "hover:bg-accent hover:text-background hover:[box-shadow:var(--glow-accent)]",
 
   secondary:
-    "bg-secondary-background text-text-primary " +
-    "hover:bg-secondary-background-hover",
+    "border-border bg-secondary-background text-text-primary " +
+    "hover:border-secondary-border hover:bg-secondary-background-hover",
 
-  ghost:
-    "text-neutral-600 hover:text-accent " +
-    "dark:text-neutral-400 dark:hover:text-accent",
+  ghost: "border-transparent text-text-secondary hover:text-accent",
 };
 
 const sizes: Record<Size, string> = {

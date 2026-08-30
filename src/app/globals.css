@@ -7,67 +7,150 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* base */
+  --background: #0d0b07;
+  --foreground: #e9e1d2;
 
-  --text-primary: #093824;
-  --text-secondary: 23 23 23;
-  --border: 23 23 23;
+  /* text */
+  --text-primary: #e9e1d2;
+  --text-secondary: #8f8574;
 
-  --accent: #bf4e30;
-  --accent-hover: #d45f3e;
+  /* structure */
+  --border: #2b2317;
+  --secondary-background: #151109;
+  --secondary-background-hover: #1c1710;
+  --secondary-border: #3a2f1e;
 
-  --secondary-background: #e5eafa;
-  --secondary-background-hover: #d6ddf6;
-  --secondary-border: #c3cdf0;
+  /* accent — phosphor amber */
+  --accent: #f2a33c;
+  --accent-hover: #ffb654;
+  --accent-muted: #9a7440;
+
+  /* trading semantics — use sparingly */
+  --positive: #5fbf77;
+  --negative: #d96a5a;
+
+  /* effects */
+  --glow-accent: 0 0 18px rgb(242 163 60 / 0.35);
+  --glow-positive: 0 0 8px rgb(95 191 119 / 0.6);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-
-  --text-primary: #d8e4de;
-  --text-secondary: 237 237 237;
-  --border: 237 237 237;
-
-  --accent: #bf4e30;
-  --accent-hover: #d45f3e;
-
-  --secondary-background: #1a1f33;
-  --secondary-background-hover: #242b45;
-  --secondary-border: #2f3752;
+  --background: #0d0b07;
+  --foreground: #e9e1d2;
+  --text-primary: #e9e1d2;
+  --text-secondary: #8f8574;
+  --border: #2b2317;
+  --secondary-background: #151109;
+  --secondary-background-hover: #1c1710;
+  --secondary-border: #3a2f1e;
+  --accent: #f2a33c;
+  --accent-hover: #ffb654;
+  --accent-muted: #9a7440;
+  --positive: #5fbf77;
+  --negative: #d96a5a;
+  --glow-accent: 0 0 18px rgb(242 163 60 / 0.35);
+  --glow-positive: 0 0 8px rgb(95 191 119 / 0.6);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-text-primary: rgb(var(--text-primary));
-  --color-text-secondary: rgb(var(--text-secondary));
-  --color-border: rgb(var(--border));
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
 
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
 
   --color-secondary-background: var(--secondary-background);
   --color-secondary-background-hover: var(--secondary-background-hover);
   --color-secondary-border: var(--secondary-border);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* mono-first: swap to IBM Plex in layout.tsx; geist fallbacks until then */
+  --font-sans: var(--font-plex-sans, var(--font-geist-sans));
+  --font-mono: var(--font-plex-mono, var(--font-geist-mono));
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* mono is the site's voice; sans is opt-in for long prose */
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* faint CRT scanlines — apply .scanlines to a fixed overlay div in layout */
+.scanlines {
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgb(0 0 0 / 0.08) 3px 4px 
+  );
+  opacity: 0.35; 
+}
+
+/* blinking block cursor — <span class="cursor-block" /> */
+.cursor-block {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.05em;
+  background: var(--accent);
+  vertical-align: -0.125em;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ticker track — width:max-content, content duplicated once for the loop */
+.ticker-track {
+  animation: tick 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tick {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes flow {
-  from { stroke-dashoffset: 1; }
-  to   { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .route-flow { animation: none; opacity: 0; }
+  .route-flow {
+    animation: none;
+    opacity: 0;
+  }
+  .cursor-block {
+    animation: none;
+  }
+  .ticker-track {
+    animation: none;
+  }
 }

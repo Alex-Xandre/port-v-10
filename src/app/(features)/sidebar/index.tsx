@@ -6,86 +6,103 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SIDEBAR_MENU } from "./sidebar-content-data";
-import ThemeToggle from "./theme-toggle";
+import Ticker from "./ticker";
 
 const Appbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const isActive = (href: string) => href !== "#" && pathname.startsWith(href);
+
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/10 bg-background 2xl:px-100 xl:px-54 md:px-32 px-4">
-      <div className="flex items-center justify-between  py-3 text-sm">
-        <Link
-          href="/"
-          className="select-none text-base font-medium text-text-primary [-webkit-tap-highlight-color:transparent] touch-manipulation"
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-sm">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
+        <div className="flex flex-nowrap items-center justify-between gap-4 whitespace-nowrap py-3 text-sm">
+          <Link
+            href="/"
+            aria-label="Xandre Micua — home"
+            className="flex select-none items-center gap-2.5 [-webkit-tap-highlight-color:transparent] touch-manipulation"
+          >
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 flex-none rounded-full bg-positive [box-shadow:var(--glow-positive)]"
+            />
+            <span className="text-sm text-text-secondary">
+              xandre<span className="text-accent-muted">@sh</span>:~
+            </span>
+          </Link>
+
+          <nav className="hidden items-center gap-4 lg:flex">
+            {SIDEBAR_MENU.map((item) => {
+              const href = item.href ?? "#";
+              const active = isActive(href);
+              return (
+                <Link
+                  key={item.text}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "lowercase transition-colors",
+                    active
+                      ? "text-accent"
+                      : "text-text-secondary hover:text-text-primary",
+                  )}
+                >
+                  {item.text}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="text-text-secondary transition-colors hover:text-text-primary lg:hidden"
+          >
+            {open ? (
+              <X size={20} strokeWidth={1.5} />
+            ) : (
+              <Menu size={20} strokeWidth={1.5} />
+            )}
+          </button>
+        </div>
+
+        <nav
+          className={cn(
+            "flex flex-col overflow-hidden border-t text-sm transition-all duration-200 lg:hidden",
+            open
+              ? "max-h-96 border-border bg-secondary-background py-2"
+              : "max-h-0 border-transparent py-0",
+          )}
         >
-          <h1 className="text-base font-medium">Xandre Micua</h1>
-        </Link>
-        {/* Desktop nav — hidden below md */}
-        <nav className="hidden items-center gap-1 md:flex">
           {SIDEBAR_MENU.map((item) => {
             const href = item.href ?? "#";
-            const isActive = pathname.includes(href);
+            const active = isActive(href);
             return (
               <Link
                 key={item.text}
                 href={href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-2 py-2 transition-colors",
-                  isActive
-                    ? "text-text-primary"
-                    : "text-text-primary/60 hover:text-text-primary",
+                  "px-2 py-2 lowercase transition-colors",
+                  active
+                    ? "text-accent"
+                    : "text-text-secondary hover:text-text-primary",
                 )}
               >
+                <span aria-hidden="true" className="mr-2 text-accent-muted">
+                  &gt;
+                </span>
                 {item.text}
               </Link>
             );
           })}
         </nav>
-
-        {/* Right components */}
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-
-          {/* Burger — only below md */}
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="text-text-primary/60 transition-colors hover:text-text-primary md:hidden"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
       </div>
 
-      {/* Mobile dropdown panel */}
-      <nav
-        className={cn(
-          "flex flex-col gap-1 overflow-hidden border-t border-border/10 md:px-5 text-sm transition-all duration-200 md:hidden",
-          open ? "max-h-96 py-3" : "max-h-0 border-t-0 py-0",
-        )}
-      >
-        {SIDEBAR_MENU.map((item) => {
-          const href = item.href ?? "#";
-          const isActive = pathname === href;
-          return (
-            <Link
-              key={item.text}
-              href={href}
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-2 py-2 transition-colors",
-                isActive
-                  ? "text-text-primary"
-                  : "text-text-primary/60 hover:text-text-primary",
-              )}
-            >
-              {item.text}
-            </Link>
-          );
-        })}
-      </nav>
+      <Ticker />
     </header>
   );
 };

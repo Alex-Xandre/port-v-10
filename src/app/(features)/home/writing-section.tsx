@@ -1,19 +1,27 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
-import Title from "@/components/title";
 import { getAllPosts } from "@/lib/posts";
+
+const isoMonth = (d: string) => {
+  const date = new Date(d);
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  return `${date.getFullYear()}-${m}`;
+};
 
 export default function HomeWritingPreview() {
   const posts = getAllPosts();
   return (
-    <Container className="h-auto flex-col py-12 bg-background/90">
-      <div className="mb-6 flex w-full items-baseline justify-between">
-        <Title title="Blogs" />
+    <Container className="flex-col py-12" animate={false}>
+      <div className="mb-4 flex w-full items-baseline justify-between gap-4">
+        <p className="text-sm text-accent-muted">
+          xandre@sh:~ ${" "}
+          <span className="text-accent">cat blog/*.md | head -3</span>
+        </p>
         <Link
           href="/blogs"
-          className="text-[13px] text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+          className="flex-none text-[13px] text-text-secondary transition-colors hover:text-accent"
         >
-          All posts →
+          cd /blogs →
         </Link>
       </div>
 
@@ -22,21 +30,18 @@ export default function HomeWritingPreview() {
           <Link
             key={post.slug}
             href={`/blogs/${post.slug}`}
-            className="group flex items-start justify-between gap-6 border-t border-neutral-200 py-4 dark:border-neutral-800"
+            className="group flex items-start justify-between gap-6 border-b border-dashed border-border py-4 last:border-b-0"
           >
             <div className="min-w-0">
-              <div className="text-sm font-medium text-neutral-900 group-hover:underline dark:text-neutral-100">
-                {post.title}
+              <div className="text-sm font-medium text-text-primary transition-colors group-hover:text-accent">
+                {post.slug}.md
               </div>
-              <div className="mt-0.5 text-sm text-neutral-600 dark:text-neutral-400">
+              <div className="mt-1 font-sans text-sm text-text-secondary">
                 {post.excerpt}
               </div>
             </div>
-            <span className="shrink-0 text-xs text-neutral-400 dark:text-neutral-500">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              })}
+            <span className="shrink-0 text-xs text-text-secondary">
+              {isoMonth(post.date)}
             </span>
           </Link>
         ))}

@@ -2,15 +2,29 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-import { DottedBackground } from "@/components/dotted-background";
 import Appbar from "./(features)/sidebar";
-import { Caveat } from "next/font/google";
+import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { SiteFooter } from "./(features)/footer";
 import { Analytics } from "@vercel/analytics/next";
 
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-script",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
@@ -74,19 +88,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={caveat.variable}>
-      <Analytics/>
+    <html
+      lang="en"
+      className={`dark ${caveat.variable} ${plexMono.variable} ${plexSans.variable}`}
+    >
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="flex h-screen flex-1 flex-col overflow-hidden font-sans">
-            <Appbar />
-            <div className="mt-16 flex-1 overflow-y-auto">
-              <DottedBackground />
-              {children}
-              <SiteFooter />
-            </div>
-          </main>
-        </ThemeProvider>
+        <Analytics />
+        <div className="scanlines fixed inset-0 z-9" aria-hidden="true" />
+        <main className="flex h-screen flex-1 flex-col overflow-hidden font-mono">
+          <Appbar />
+          <div className="mt-16 flex-1 overflow-y-auto">
+            {children}
+            <SiteFooter />
+          </div>
+        </main>
       </body>
     </html>
   );
