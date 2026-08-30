@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SIDEBAR_MENU } from "./(features)/sidebar/sidebar-content-data";
 
-
 export default function NotFound() {
   const pathname = usePathname();
 
@@ -44,12 +43,14 @@ export default function NotFound() {
         >
           cd ~
         </Link>
+        <span className="mx-3 text-text-secondary">or</span>
+        <button
+          onClick={() => window.dispatchEvent(new Event("open-shell"))}
+          className="text-accent-muted transition-colors hover:text-accent"
+        >
+          open a shell
+        </button>
         <span className="cursor-block ml-2" aria-hidden="true" />
-      </p>
-
-      <p className="mt-12 text-xs text-text-secondary">
-        <span className="text-accent-muted">process exited 127</span>
-        {" · "}command not found
       </p>
     </div>
   );
