@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import Button from "@/components/button";
+import FooterCat from "./footer-cat";
 
 const EMAIL = "xndrmcua22@gmail.com";
 
@@ -49,7 +50,8 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="w-full border-t border-border">
+    <footer className="w-full border-t border-border relative">
+        <FooterCat />
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
         <div className="flex flex-col gap-8 py-14 md:flex-row md:items-start md:justify-between">
           <div className="max-w-lg">
