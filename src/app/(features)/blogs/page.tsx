@@ -90,15 +90,12 @@ export default async function BlogPage({
 
       <div className="min-h-0 w-full flex-1 overflow-y-auto pb-8 pr-3 scrollbar-thin scrollbar-gutter-stable">
         {filtered.length > 0 ? (
-          <div className="w-full overflow-hidden border border-border bg-secondary-background">
-            {filtered.map((post, i) => (
+          <div className="w-full">
+            {filtered.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blogs/${post.slug}`}
-                className={[
-                  "group flex flex-col gap-1 px-4 py-3.5 transition-colors hover:bg-secondary-background-hover sm:px-5",
-                  i > 0 ? "border-t border-dashed border-border" : "",
-                ].join(" ")}
+                className="group flex flex-col gap-1 border-b border-dashed border-border py-5"
               >
                 <span className="flex items-baseline justify-between gap-4">
                   <span className="text-sm font-medium text-text-primary transition-colors group-hover:text-accent">

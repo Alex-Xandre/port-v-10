@@ -7,6 +7,7 @@ import { Caveat, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { SiteFooter } from "./(features)/footer";
 import { Analytics } from "@vercel/analytics/next";
 import { getGithubStats } from "@/lib/github";
+import Shell from "./(features)/shell";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -95,6 +96,7 @@ export default async function RootLayout({
       className={`dark ${caveat.variable} ${plexMono.variable} ${plexSans.variable}`}
     >
       <body>
+        <Shell />
         <Analytics />
         <div className="scanlines fixed inset-0 z-0" aria-hidden="true" />
         <main className="relative z-10 flex h-screen flex-1 flex-col overflow-hidden font-mono">

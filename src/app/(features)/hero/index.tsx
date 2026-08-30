@@ -9,28 +9,27 @@ import Button from "@/components/button";
 const CMD = "whoami --verbose";
 
 export default function Hero() {
-  const [typed, setTyped] = useState("");
-  const [done, setDone] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [typed, setTyped] = useState(() => {
+    if (typeof window === "undefined") return "";
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? CMD
+      : "";
+  });
+  const [done, setDone] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
 
   useEffect(() => {
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (reduce) {
-      setTyped(CMD);
-      setDone(true);
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let i = 0;
     const type = () => {
       i += 1;
       setTyped(CMD.slice(0, i));
-      if (i < CMD.length) {
+      if (i < CMD.length)
         timer.current = setTimeout(type, 42 + Math.random() * 55);
-      } else {
-        timer.current = setTimeout(() => setDone(true), 240);
-      }
+      else timer.current = setTimeout(() => setDone(true), 240);
     };
     timer.current = setTimeout(type, 420);
     return () => {
@@ -41,11 +40,17 @@ export default function Hero() {
   return (
     <Container className="flex-col gap-0 py-16 md:py-24 bg-background">
       <div className="flex  flex-col">
-        <p className="text-sm text-accent-muted" aria-label={`Command: ${CMD}`}>
+        <button
+          onClick={() => window.dispatchEvent(new Event("open-shell"))}
+          aria-label={`Open shell — command: ${CMD}`}
+          className="group cursor-text text-left text-sm text-accent-muted"
+        >
           xandre@sh:~ $ <span className="text-accent">{typed}</span>
           <span className="cursor-block ml-0.5" aria-hidden="true" />
-        </p>
-
+          <span className="ml-3 text-xs text-text-secondary opacity-0 transition-opacity group-hover:opacity-100">
+            click to type
+          </span>
+        </button>
         {/* output — fades in once the command finishes typing */}
         <div
           className={`transition-opacity duration-500 ${
