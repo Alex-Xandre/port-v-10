@@ -1,25 +1,31 @@
 ---
-title: "I wrote my design system as instructions, then had an AI rebuild my site"
+title: "I wrote down my design system, then checked whether it survived being read"
 date: "2026-08-30"
 tags: ["ai", "design", "open-source"]
-excerpt: "Not the code — the rules. Then a different portfolio came out the other side, and it was right."
+excerpt: "I built the site by hand. The interesting part was writing the rules down afterwards, and finding out they transfer."
 ---
 
-I redesigned my portfolio last week. Terminal styling: amber on near-black,
-commands as section headers, my career rendered as a `git log`. Somewhere
-in the middle of it I stopped writing components and started writing down
-why.
+I rebuilt this portfolio by hand last week. Terminal styling: amber on
+near-black, commands as section headers, my career rendered as a
+`git log`. Every component written and argued with one at a time, the
+normal way.
 
-That file became `AGENTS.md`. Not documentation of what the code does —
-constraints. One accent color. Mono for chrome, sans for reading. Sharp
-corners. Every color from a token. Navigation links are always `cd`.
+Then I wanted to open-source it, and hit the problem every template has.
+Handing someone the code hands them my decisions without the reasons. They
+get a working site and no idea which parts are load-bearing — so the first
+fork adds a logo grid and a light mode and the thing quietly stops being a
+design.
+
+So instead of writing documentation, I wrote the constraints. That file
+became `AGENTS.md`. One accent color. Mono for chrome, sans for reading.
+Sharp corners. Every color from a token. Navigation links are always `cd`.
 Content images live in window frames, ornament images don't exist. About
-forty rules, plus the patterns each page follows and a couple of palette
-presets.
+forty rules, plus the pattern each page follows and a few palette presets.
 
-Then I did the obvious thing: cloned the repo into an empty folder, gave
-an agent the harness and a fake identity — "Sam, backend engineer, use the
-green palette" — and asked for the site.
+Then the obvious question: does any of it actually transfer, or did I just
+describe my own site to myself? Only one way to find out. Empty folder,
+the harness, a fake identity — "Sam, backend engineer, use the green
+palette" — and an agent.
 
 ## What came back
 
@@ -58,13 +64,13 @@ that read like preferences got treated as preferences.
 
 ## Why bother
 
-Because the alternative is that every design decision lives in one
-person's head and leaks out one code review at a time. Writing the
-constraints down forced me to know which ones were real. Half of what I
-thought was taste turned out to be a rule I could state, and the rest
-turned out to be habit I couldn't defend.
+Because writing the constraints down forced me to know which ones were
+real. Half of what I thought was taste turned out to be a rule I could
+state in one sentence. The rest turned out to be habit I couldn't defend,
+and some of it I dropped.
 
-The repo is public — the harness plus the palettes, [terminal-portfolio](https://github.com/Alex-Xandre/terminal-portfolio).
-Point an agent at it and it will build you something related to this site
-but not a copy of it, which is the correct outcome. The system transfers.
-The jokes shouldn't.
+The repo is public — the harness plus the palettes,
+[terminal-portfolio](https://github.com/Alex-Xandre/terminal-portfolio).
+Point an agent at it and it builds something related to this site but not
+a copy of it, which is the correct outcome. The system transfers. The
+jokes shouldn't.
