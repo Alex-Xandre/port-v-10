@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# xandremicua.vercel.app
 
-## Getting Started
+My portfolio. Terminal-styled: amber phosphor on near-black, commands as
+section headers, projects rendered as `ls -l`, career as a `git log`,
+stack as an `npm ls` tree.
 
-First, run the development server:
+Built with Next.js (App Router), Tailwind v4, IBM Plex Mono + Sans.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Notable bits
+
+- **Interactive shell** — press `/`, click the hero prompt, or use the
+  corner button. Tab completion, command history, real navigation
+  (`projects --postgres` filters and routes). A few easter eggs.
+- **Live ticker** — last push and public repo count pulled from the
+  GitHub API server-side, cached hourly, hidden entirely if the fetch
+  fails.
+- **`theme green`** — the whole site recolors from one token block.
+- **A cat** patrols the footer.
+
+## Structure
+
+```
+src/
+  app/
+    (features)/        pages and their data files
+    layout.tsx         fonts, shell, scanlines
+    not-found.tsx      404 as a bash error
+    globals.css        the token block — all theming lives here
+  components/          button, container, shell, footer cat, markdown
+  lib/                 site constants, posts, github, palettes
+content/posts/         blog markdown
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running it
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Template version
 
-## Learn More
+The design system is open source as
+[terminal-portfolio](https://github.com/Alex-Xandre/terminal-portfolio) —
+an agent harness (`AGENTS.md`) that encodes the rules, patterns, and
+palette presets. Point Claude Code at it and it builds you something
+related to this site but not a copy of it.
 
-To learn more about Next.js, take a look at the following resources:
+Writeup: [rules transfer](https://xandremicua.vercel.app/blogs/harness-experiment)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Credits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cat sprite from [oneko.js](https://github.com/adryd325/oneko.js) (MIT).
