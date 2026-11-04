@@ -2,6 +2,7 @@ import { Container } from "@/components/container";
 import { PLATFORMS, SETUP, BUILT, type TradingPlatform } from "./trading-data";
 import { TRADING_POSTS } from "./trading-blog-post";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 const GROUPS: TradingPlatform["group"][] = ["Forex", "Crypto", "Prop"];
 
@@ -56,7 +57,7 @@ export default function TradingPage() {
               # built for trading
             </p>
             <div>
-              {BUILT.map(({ name, desc }) => (
+              {BUILT.map(({ name, desc, liveUrl = null }) => (
                 <div
                   key={name}
                   className="border-t border-dashed border-border py-4"
@@ -67,6 +68,22 @@ export default function TradingPage() {
                   <p className="mt-1 font-sans text-[13px] leading-relaxed text-text-secondary">
                     {desc}
                   </p>
+
+                  {liveUrl && (
+                    <div className="relative z-10 flex items-center gap-4 pt-1">
+                      {liveUrl && (
+                        <a
+                          href={liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[13px] text-text-primary transition-colors hover:text-accent"
+                        >
+                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                          View live
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

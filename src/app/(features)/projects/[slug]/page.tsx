@@ -12,6 +12,7 @@ import { Container } from "@/components/container";
 import Button from "@/components/button";
 import { getProject, getAdjacent, displayUrl, PROJECTS } from "../adapt";
 import type { Metadata } from "next";
+import { ScreenshotSlider } from "../screenshot-slider";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -110,38 +111,13 @@ export default async function ProjectDetailPage({
         </div>
       </header>
 
-      <div className="mb-12 grid w-full gap-6">
-        {project.banner.map((src, i) => (
-          <div key={src} className="overflow-hidden border border-border">
-            <div className="flex items-center gap-3 border-b border-border bg-secondary-background px-4 py-2.5">
-              <div className="flex gap-1.5" aria-hidden="true">
-                <span className="h-2.5 w-2.5 rounded-full bg-negative/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-positive/70" />
-              </div>
-              <div className="mx-auto flex min-w-0 items-center gap-1.5 border border-border bg-background px-3 py-1">
-                <Lock
-                  className="h-3 w-3 shrink-0 text-accent-muted"
-                  aria-hidden
-                />
-                <span className="truncate text-xs text-text-secondary">
-                  {displayUrl(project.web_link) || `~/projects/${slug}`}
-                </span>
-              </div>
-              <div className="w-10 shrink-0" />
-            </div>
-            <div className="relative aspect-video bg-background">
-              <Image
-                src={src}
-                alt={`${project.title} screenshot ${i + 1}`}
-                fill
-                sizes="(min-width: 1024px) 900px, 100vw"
-                className="object-cover object-left"
-                priority={i === 0}
-              />
-            </div>
-          </div>
-        ))}
+      <div className="mb-12 w-full">
+        <ScreenshotSlider
+          images={project.banner}
+          name={project.title}
+          labels={project?.bannerLabels}
+          host={displayUrl(project.web_link) || `~/projects/${slug}`}
+        />
       </div>
 
       <div className="grid w-full gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">

@@ -12,7 +12,7 @@ const PROJECTS: Project[] = PROJECT_DATA.map((p) => ({
   year: p.year,
   description: p.description,
   tech: p.stack,
-  image: p.banner[0],
+  image: p.banner.find(Boolean),
   liveUrl: p.web_link,
   repoUrl: p.github,
 }));

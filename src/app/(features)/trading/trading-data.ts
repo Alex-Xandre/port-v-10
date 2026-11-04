@@ -20,6 +20,19 @@ export const SETUP = [
 
 export const BUILT = [
   {
+    name: "Steadly",
+    liveUrl: "https://steadly.vercel.app/",
+    desc: "A white-label platform for trading academies: mentors run courses and review trades, and students track their prop firm rules and journal every trade.",
+  },
+  {
+    name: "Position Size Calculator",
+    desc: "Chrome side-panel extension that sizes a trade from risk and stop, warns before a loss would breach the daily cap, and journals it to Google Sheets.",
+  },
+  {
+    name: "Volume Profile Pro",
+    desc: "TradingView indicator with a live session profile, draggable ranges, naked POCs, and CME futures volume mapped onto forex charts.",
+  },
+  {
     name: "Journal automation",
     desc: "Python script that pulls fills into a spreadsheet and tags setups automatically.",
   },
