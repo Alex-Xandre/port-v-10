@@ -10,7 +10,7 @@ export type Project = {
   year?: number;
   description: string;
   tech: string[];
-  image: string;
+  image?: string;
   liveUrl?: string;
   repoUrl?: string;
 };
@@ -41,13 +41,28 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="relative aspect-video overflow-hidden border-b border-border bg-background">
-        <Image
-          src={project.image}
-          alt={`${project.name} screenshot`}
-          fill
-          sizes="(min-width: 1024px) 384px, 100vw"
-          className="object-cover object-left opacity-90 transition-transform duration-500 ease-out group-hover:scale-[1.03] group-hover:opacity-100"
-        />
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            fill
+            sizes="(min-width: 1024px) 384px, 100vw"
+            className="object-cover object-left brightness-[0.8] transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-100"
+          />
+        ) : (
+          <div className="flex h-full flex-col justify-center gap-1.5 px-5 text-[12px]">
+            <p className="text-accent-muted">
+              ${" "}
+              <span className="text-text-primary">
+                open {project.slug}/screenshot.png
+              </span>
+            </p>
+            <p className="text-text-secondary">
+              <span className="text-negative">open:</span> No such file or
+              directory
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="p-5">
